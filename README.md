@@ -1,20 +1,20 @@
 # ACS 2023
-This repository contains all (Python 3) code and libraries required for the 2022-2023 Notre Dame Rocketry Team (NDRT) Apogee Control System (ACS). It also contains sensor/actuator example code that will run on a Raspberry Pi Microcontroller.
+This repository contains all (Python 3) code and libraries required for the 2022-2023 Notre Dame Rocketry Team (NDRT) Apogee Control System (ACS). It also contains sensor/actuator example code.
 
 ## Batteries
 
-## List of Sensors
+## Sensors
 
 | Sensor Type | Sensor Model |
 | ----------- | ------------ |
 
-## Microcontroller Information
+## Microcontroller
 
-## Actuator Information
+## Actuator
 
-## Connecting to Pi
+## Interfacing with the Microcontroller
 
-## Subscale
+## Subscale Workflow
 
 *
   *
@@ -22,7 +22,7 @@ This repository contains all (Python 3) code and libraries required for the 2022
 *
 *
 
-## Fullscale
+## Fullscale Workflow
 
 *
   *
