@@ -3,11 +3,13 @@ This repository contains all (Python 3) code and libraries required for the 2022
 
 ## List of Sensors
 
-| Sensor Type   | Chosen Sensor |
-| ------------- | ------------- |
+| Sensor Type | Sensor Model |
+| ----------- | ------------ |
 
 
 ## Connecting to Pi
+
+## Actuator Information
 
 ## Subscale
 
