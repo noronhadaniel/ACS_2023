@@ -1,0 +1,5 @@
+.DS_Store
+.idea
+tmp/
+__pycache__/
+.*.sw*
