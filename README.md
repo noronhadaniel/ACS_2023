@@ -37,7 +37,7 @@ Raspberry Pi 4 Model B (4GB RAM)
 *
 
 ## Miscellaneous Notes/Troubleshooting
-*Command: `ssh pi@mulberry`
-  *Error: `ssh: Could not resolve hostname [hostname]: nodename nor servname provided, or not known`
-  *Solution: Run `sudo killall -HUP mDNSResponder` and then try `ssh pi@mulberry` again
+* Command: `ssh pi@mulberry`
+  * Error: `ssh: Could not resolve hostname [hostname]: nodename nor servname provided, or not known`
+  * Solution: Run `sudo killall -HUP mDNSResponder` and then try `ssh pi@mulberry` again
 
