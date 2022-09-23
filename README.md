@@ -6,6 +6,7 @@ This repository contains all (Python 3) code and libraries required for the 2022
 2. Open a terminal
 3. Type `ssh pi@mulberry`
 4. Enter password `ACS_2023`
+5. Always use `git pull` before pushing changes to avoid merge conflicts
 
 ## Batteries
 
