@@ -11,7 +11,7 @@ SSH:
 
 VNC Viewer (Remote Desktop):
 1. Connect to the Raspberry Pi via SSH
-2. Run `vncserver` and copy the IP address
+2. Run `vncserver` and copy the IP address (same as wlan0 IPv4 from running `ifconfig`)
 3. Open RealVNC VNC Viewer and enter the copied IP address (with username: pi and password: ACS_2023)
 4. When finished, disconnect the VNC Viewer and run `vncserver -kill :1' to kill connection 1 (check ~/.vnc to make sure no .pid process files exist)
 
