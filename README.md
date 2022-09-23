@@ -2,11 +2,18 @@
 This repository contains all (Python 3) code and libraries required for the 2022-2023 Notre Dame Rocketry Team (NDRT) Apogee Control System (ACS). It also contains sensor/actuator example code and flight data.
 
 ## Interfacing with the Microcontroller
-1. Connect to `ND-guest`
+SSH:
+1. Connect to `ND-guest` (or hotspot)
 2. Open a terminal
-3. Type `ssh pi@mulberry`
+3. Type `ssh pi@mulberry` (or `ssh pi@mulberry.local` if using hotspot)
 4. Enter password `ACS_2023`
-5. Always use `git pull` before pushing changes to avoid merge conflicts
+5. Always use `git pull` before pushing changes to avoid merge conflicts (`git status` is also useful)
+
+VNC Viewer (Remote Desktop):
+1. Connect to the Raspberry Pi via SSH
+2. Run `vncserver` and copy the IP address
+3. Open RealVNC VNC Viewer and enter the copied IP address (with username: pi and password: ACS_2023)
+4. When finished, disconnect the VNC Viewer and run `vncserver -kill :1' to kill connection 1 (check ~/.vnc to make sure no .pid process files exist)
 
 ## Batteries
 
