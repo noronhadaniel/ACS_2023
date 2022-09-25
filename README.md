@@ -48,4 +48,4 @@ Raspberry Pi 4 Model B (4GB RAM)
   * Error: `ssh: Could not resolve hostname [hostname]: nodename nor servname provided, or not known`
   * Solution: Run `sudo killall -HUP mDNSResponder` and then try `ssh pi@mulberry` again
 * `sudo raspi-config`
-* `sudo iwgetid -r` to find out what Wi-Fi you are connected to
+* `iwgetid -r` to find out what Wi-Fi you are connected to
