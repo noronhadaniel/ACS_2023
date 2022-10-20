@@ -147,9 +147,9 @@ class MPL3115A2:
         except OSError:
             self._poll_reg1(_MPL3115A2_CTRL_REG1_RST)
         # Configure the chip registers with default values.
-        # Changed _MPL3115A2_CTRL_REG1_OS128 to _MPL3115A2_CTRL_REG1_OS8 for higher sample rate
+        #* Changed _MPL3115A2_CTRL_REG1_OS128 to _MPL3115A2_CTRL_REG1_OS8 for higher sample rate
         # See https://learn.sparkfun.com/tutorials/mpl3115a2-pressure-sensor-hookup-guide/all for more details
-        self._ctrl_reg1 = _MPL3115A2_CTRL_REG1_OS8 | _MPL3115A2_CTRL_REG1_ALT
+        self._ctrl_reg1 = _MPL3115A2_CTRL_REG1_OS4 | _MPL3115A2_CTRL_REG1_ALT
         self._write_u8(_MPL3115A2_CTRL_REG1, self._ctrl_reg1)
         self._write_u8(
             _MPL3115A2_PT_DATA_CFG,
