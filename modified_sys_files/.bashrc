@@ -112,6 +112,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export PYTHONPATH=$PYTHONPATH:/home/pi/ACS_2023/Libraries
 alias ll='ls -la'
 alias cls='clear'
 
