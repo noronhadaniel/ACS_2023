@@ -16,11 +16,15 @@ VNC Viewer (Remote Desktop):
 4. When finished, disconnect the VNC Viewer and run `vncserver -kill :1' to kill connection 1 (check ~/.vnc to make sure no .pid process files exist)
 
 ## Batteries
+* YDL PL 115659 3.7V LiPo (5000mAh)
 
 ## Sensors
 
-| Sensor Type | Sensor Model |
-| ----------- | ------------ |
+|  Sensor Type  | Sensor Model |
+| ------------- | ------------ |
+| Accelerometer |    ADXL343   |
+|   Altimeter   |   MPL3115A2  |
+|      IMU      |     BNO055   |
 
 ## Microcontroller
 Raspberry Pi 4 Model B (4GB RAM)
@@ -47,5 +51,8 @@ Raspberry Pi 4 Model B (4GB RAM)
 * Command: `ssh pi@mulberry`
   * Error: `ssh: Could not resolve hostname [hostname]: nodename nor servname provided, or not known`
   * Solution: Run `sudo killall -HUP mDNSResponder` and then try `ssh pi@mulberry` again
+* Command: `ssh pi@mulberry`
+  * Error: `ssh: connect to host mulberry port 22: Undefined error: 0`
+  * Solution: Make sure you run `ssh pi@mulberry.local` if using a hotspot connection
 * `sudo raspi-config`
 * `iwgetid -r` to find out what Wi-Fi you are connected to
