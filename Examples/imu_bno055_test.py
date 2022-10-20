@@ -23,9 +23,10 @@ def temperature():
     last_val = result
     return result
 
-
-while True:
-    print("Temperature: {} degrees C".format(sensor.temperature))
+start_time = time.time()
+samples = 0
+while (time.time()-start_time < 10):
+    # print("Temperature: {} degrees C".format(temperature()))
     """
     print(
         "Temperature: {} degrees C".format(temperature())
@@ -35,9 +36,11 @@ while True:
     print("Magnetometer (microteslas): {}".format(sensor.magnetic))
     print("Gyroscope (rad/sec): {}".format(sensor.gyro))
     print("Euler angle: {}".format(sensor.euler))
-    print("Quaternion: {}".format(sensor.quaternion))
+    #print("Quaternion: {}".format(sensor.quaternion))
     print("Linear acceleration (m/s^2): {}".format(sensor.linear_acceleration))
     print("Gravity (m/s^2): {}".format(sensor.gravity))
+    samples += 1
+    print(f"Sample Rate = {samples/(time.time()-start_time):.4f}Hz")
     print()
 
     #time.sleep(1)

@@ -11,7 +11,7 @@ start_time = time.time()
 samples = 0
 previous_acceleration = (0,0,0)
 
-while (time.time() - start_time) < float(sys.argv[1]):
+while ((time.time() - start_time) < 10):
     current_acceleration = accelerometer.acceleration
     if previous_acceleration != current_acceleration:
         print(f"x = {accelerometer.acceleration[0]:.3f} y = {accelerometer.acceleration[1]:.3f} z = {accelerometer.acceleration[2]:.3f}")
