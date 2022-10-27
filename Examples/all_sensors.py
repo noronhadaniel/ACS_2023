@@ -89,6 +89,7 @@ def init_sensors():
     result = result and init_accelerometer()
     result = result and init_altimeter()
     result = result and init_imu()
+    result = result and init_time()
     return result
 
 def read_sensors():
@@ -101,7 +102,7 @@ def read_sensors():
 
 init_sensors()
 samples = 0
-while True:
+while curr_time < 10:
     read_sensors()
     print(f"\nTime = {curr_time:.3f}s")
     print("-----Accelerometer-----")
