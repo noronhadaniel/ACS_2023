@@ -2,7 +2,7 @@ import glob
 import csv
 import sensors
 
-path = '..\_data'
+path = '../_data/'
 name = 'data'
 extension = '.csv'
 filename = None
@@ -58,16 +58,16 @@ def find_new_filename(path: str, name: str, extension: str) -> bool:
         file_num = int(file.replace(path+name+"_","").replace(extension,""))
         if file_num > max_num:
             max_num = file_num
-    if max_num == 0:
+    if len(old_files) == 0:
         new_num = 0
     else:
         new_num = max_num + 1
 
     # Create new filename and return it
     if new_num < 10:
-        new_filename = path+name+'_0'+str(max_num)+extension
+        new_filename = path+name+'_0'+str(new_num)+extension
     else:
-        new_filename = path+name+'_'+str(max_num)+extension
+        new_filename = path+name+'_'+str(new_num)+extension
 
     filename = new_filename
     return True
@@ -75,7 +75,7 @@ def find_new_filename(path: str, name: str, extension: str) -> bool:
 def new_CSV(filename: str, header: list) -> bool:
     global f
     file = open(filename, 'w')
-    csv.writer(f).writerow(header)
+    csv.writer(file).writerow(header)
     f = file
 
 def addRow(f, row: list) -> bool:
