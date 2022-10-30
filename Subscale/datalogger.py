@@ -27,26 +27,6 @@ header = [
     "Gravity_Z"
 ]
 
-row = [
-            "%.4f" % sensors.curr_time,
-            "%.4f" % sensors.acceleration_acce_x,
-            "%.4f" % sensors.acceleration_acce_y,
-            "%.4f" % sensors.acceleration_acce_z,
-            "%.4f" % sensors.altitude,
-            "%.4f" % sensors.acceleration_imu_x,
-            "%.4f" % sensors.acceleration_imu_y,
-            "%.4f" % sensors.acceleration_imu_z,
-            "%.4f" % sensors.linacceleration_imu_x,
-            "%.4f" % sensors.linacceleration_imu_y,
-            "%.4f" % sensors.linacceleration_imu_z,
-            "%.4f" % sensors.eulerangle_imu_x,
-            "%.4f" % sensors.eulerangle_imu_y,
-            "%.4f" % sensors.eulerangle_imu_z,
-            "%.4f" % sensors.gravity_imu_x,
-            "%.4f" % sensors.gravity_imu_y,
-            "%.4f" % sensors.gravity_imu_z
-        ]
-
 def find_new_filename(path: str, name: str, extension: str) -> bool:
     global filename
     # Find existing files in directory
@@ -78,7 +58,26 @@ def new_CSV(filename: str, header: list) -> bool:
     csv.writer(file).writerow(header)
     f = file
 
-def addRow(f, row: list) -> bool:
+def addRow(f) -> bool:
+row = [
+            "%.4f" % sensors.curr_time,
+            "%.4f" % sensors.acceleration_acce_x,
+            "%.4f" % sensors.acceleration_acce_y,
+            "%.4f" % sensors.acceleration_acce_z,
+            "%.4f" % sensors.altitude,
+            "%.4f" % sensors.acceleration_imu_x,
+            "%.4f" % sensors.acceleration_imu_y,
+            "%.4f" % sensors.acceleration_imu_z,
+            "%.4f" % sensors.linacceleration_imu_x,
+            "%.4f" % sensors.linacceleration_imu_y,
+            "%.4f" % sensors.linacceleration_imu_z,
+            "%.4f" % sensors.eulerangle_imu_x,
+            "%.4f" % sensors.eulerangle_imu_y,
+            "%.4f" % sensors.eulerangle_imu_z,
+            "%.4f" % sensors.gravity_imu_x,
+            "%.4f" % sensors.gravity_imu_y,
+            "%.4f" % sensors.gravity_imu_z
+        ]
     csv.writer(f).writerow(row)
     return True
 
