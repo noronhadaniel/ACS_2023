@@ -33,11 +33,14 @@ Raspberry Pi 4 Model B (4GB RAM)
 
 ## Subscale Workflow
 
-*
-  *
-  *
-*
-*
+* Data Logger Initialization
+  * Check for existing data files and find new filename (to prevent overwriting)
+  * Create new CSV file with new filename
+  * Add Header Row
+* Initialize sensors
+* Read sensor data
+* Add sensor data to new row in CSV file
+* Loop indefinitely
 
 ## Fullscale Workflow
 
