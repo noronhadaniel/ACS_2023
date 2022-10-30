@@ -59,7 +59,7 @@ def new_CSV(filename: str, header: list) -> bool:
     f = file
 
 def addRow(f) -> bool:
-row = [
+    row = [
             "%.4f" % sensors.curr_time,
             "%.4f" % sensors.acceleration_acce_x,
             "%.4f" % sensors.acceleration_acce_y,
