@@ -15,7 +15,7 @@ header = [
     "Altitude",
     "IMU_Acceleration_X",
     "IMU_Acceleration_Y",
-    "IMU_Acceleration_Z"
+    "IMU_Acceleration_Z",
     "Linear_Acceleration_X",
     "Linear_Acceleration_Y",
     "Linear_Acceleration_Z",
