@@ -7,7 +7,7 @@ sensors.init_sensors()
 
 while sensors.curr_time < 10:
     sensors.read_sensors()
-    datalogger.addRow(datalogger.f, datalogger.row)
+    datalogger.addRow(datalogger.f)
     print("Logged")
     print(sensors.curr_time)
 
