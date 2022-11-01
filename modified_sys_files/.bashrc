@@ -116,7 +116,9 @@ export PYTHONPATH=$PYTHONPATH:/home/pi/ACS_2023/Libraries
 alias ll='ls -la'
 alias cls='clear'
 
-cd ACS_2023/
+cd ACS_2023/Subscale
+cat flags.py
+python3 acs.py
 
 ## sudo sh -c "echo none > /sys/class/leds/led0/trigger" (replace none with mmc0 for default green LED behavior)
 # sudo sh -c "echo 0 > /sys/class/leds/led0/brightness"
