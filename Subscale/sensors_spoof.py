@@ -1,6 +1,5 @@
 from pandas import *
-
-FAKE_DATA_FILE = "../_data/data_02.csv"
+from flags import FAKE_DATA_FILE
 
 accelerometer = None
 altimeter = None

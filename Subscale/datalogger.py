@@ -1,13 +1,16 @@
 import glob
 import csv
-FAKE_DATA = False
+from flags import FAKE_DATA
 if FAKE_DATA:
     import sensors_spoof as sensors
 else:
     import sensors
 
 path = '../_data/'
-name = 'data'
+if FAKE_DATA:
+    name = 'fake_data'
+else:
+    name = 'data'
 extension = '.csv'
 filename = None
 f = None
