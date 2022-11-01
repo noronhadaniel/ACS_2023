@@ -1,4 +1,9 @@
-import sensors
+FAKE_DATA = False
+
+if FAKE_DATA:
+    import sensors_spoof as sensors
+else:
+    import sensors
 import datalogger
 
 datalogger.find_new_filename(datalogger.path, datalogger.name, datalogger.extension)

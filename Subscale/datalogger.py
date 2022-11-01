@@ -1,6 +1,10 @@
 import glob
 import csv
-import sensors
+FAKE_DATA = False
+if FAKE_DATA:
+    import sensors_spoof as sensors
+else:
+    import sensors
 
 path = '../_data/'
 name = 'data'
