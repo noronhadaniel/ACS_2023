@@ -96,12 +96,12 @@ def filter_data():
     # Read sensor data
     measurements = []
     measurements.append(float(sensors.altitude))
-    measurements.append(float(sensors.acceleration_acce_x), 
+    measurements.extend([float(sensors.acceleration_acce_x), 
                         float(sensors.acceleration_acce_y), 
-                        float(transform_accelerometer(sensors.acceleration_acce_z)))
-    measurements.append(float(sensors.linacceleration_imu_x),
+                        float(transform_accelerometer(sensors.acceleration_acce_z))])
+    measurements.extend([float(sensors.linacceleration_imu_x),
                         float(sensors.linacceleration_imu_y),
-                        float(transform_IMU(sensors.linacceleration_imu_z)))
+                        float(transform_IMU(sensors.linacceleration_imu_z))])
 
     t = float(sensors.curr_time)
     dt = get_dt(t)
