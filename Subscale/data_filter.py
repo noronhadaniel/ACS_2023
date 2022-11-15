@@ -6,8 +6,14 @@ if FAKE_DATA:
 else:
     import sensors as sensors
 
-# Dumby variable for filter object
+# Global variable for filter object
 my_filter = None
+
+# Global Kalman Filter Output Variables
+kalman_altitude = None
+kalman_velocity = None
+kalman_acceleration = None
+orientation_beta = None # Beta Euler angle (relative to z axis, where z points up)
 
 # Previous Time
 t_prev = None
@@ -36,11 +42,13 @@ def initialize_filter():
 
     my_filter.x = np.array([0,0,0])
 
+    return True
+
 # Gets change in time between iterations
 def get_dt(in_time):
     global t_prev
 
-    if t_prev == NONE:
+    if t_prev == None:
         dt = 0.1
     else:
         dt = in_time - t_prev
@@ -62,17 +70,17 @@ def gen_phi(dt):
 # Calibrate sensors output (reads in tuple of sensor data)
 def transform_accelerometer(in_accel):
     if FAKE_DATA:
-        out_accel = (float(in_accel[0])) - 9.81
+        out_accel = (float(in_accel[0])) - 9.80665
     else:
-        out_accel = (float(in_accel[0])) - 9.81
+        out_accel = (float(in_accel[0])) - 9.80665
 
     return out_accel
 
 def transform_IMU(in_accel):
     if FAKE_DATA:
-        out_accel = (float(in_accel[0])) - 9.81
+        out_accel = (float(in_accel[0])) - 9.80665
     else:
-        out_accel = (float(in_accel[0])) - 9.81
+        out_accel = (float(in_accel[0])) - 9.80665
 
     return out_accel
 
@@ -80,6 +88,7 @@ def transform_IMU(in_accel):
 def filter_data():
     global my_filter
     global t_prev
+    global kalman_altitude, kalman_velocity, kalman_acceleration, orientation_beta
 
     if my_filter == None:
         raise Exception("None")
@@ -93,3 +102,19 @@ def filter_data():
     measurements.append(float(sensors.linacceleration_imu_x),
                         float(sensors.linacceleration_imu_y),
                         float(sensors.linacceleration_imu_z))
+
+    t = float(sensors.curr_time)
+    dt = get_dt(t)
+
+    # Update filter parameters
+    params = np.array(measurements)
+    my_filter.F = gen_phi(dt)
+
+    # Perform prediction/update steps
+    my_filter.predict()
+    my_filter.update(params)
+
+    # Log the output
+    kalman_altitude, kalman_velocity, kalman_acceleration = my_filter.x
+    orientation_beta = sensors.eulerangle_imu_z # Beta angle between rotated and fixed coordinate z-axis
+    #^CHANGE!

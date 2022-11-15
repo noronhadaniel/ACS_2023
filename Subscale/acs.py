@@ -1,10 +1,11 @@
 from flags import FAKE_DATA
+import data_logger
 
 if FAKE_DATA:
     import sensors_spoof as sensors
 else:
     import sensors
-import data_logger
+
 
 data_logger.find_new_filename(data_logger.path, data_logger.name, data_logger.extension)
 data_logger.new_CSV(data_logger.filename, data_logger.header)
@@ -13,7 +14,7 @@ samples = 0
 
 while True:
     sensors.read_sensors()
-    data_logger.addRow(datalogger.f)
+    data_logger.addRow(data_logger.f)
     samples += 1
     print("--------------------------------------------------")
     print(f"\nSample #{samples}; Time: {sensors.curr_time}s")

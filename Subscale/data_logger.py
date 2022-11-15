@@ -1,6 +1,8 @@
+from flags import FAKE_DATA
 import glob
 import csv
-from flags import FAKE_DATA
+import data_filter
+
 if FAKE_DATA:
     import sensors_spoof as sensors
 else:
@@ -33,7 +35,11 @@ header = [
     "Euler_Angle_Z",
     "Gravity_X",
     "Gravity_Y",
-    "Gravity_Z"
+    "Gravity_Z",
+    "Kalman_Acceleration",
+    "Kalman_Velocity",
+    "Kalman_Altitude",
+    "Orientation(Beta)"
 ]
 
 def find_new_filename(path: str, name: str, extension: str) -> bool:
@@ -85,7 +91,11 @@ def addRow(f) -> bool:
             "%.4f" % sensors.eulerangle_imu_z,
             "%.4f" % sensors.gravity_imu_x,
             "%.4f" % sensors.gravity_imu_y,
-            "%.4f" % sensors.gravity_imu_z
+            "%.4f" % sensors.gravity_imu_z,
+            "%.4f" % data_filter.kalman_acceleration,
+            "%.4f" % data_filter.kalman_velocity,
+            "%.4f" % data_filter.kalman_altitude,
+            "%.4f" % data_filter.orientation_beta
         ]
     csv.writer(f).writerow(row)
     return True
