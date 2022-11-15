@@ -102,7 +102,7 @@ def read_sensors():
 
 init_sensors()
 samples = 0
-while curr_time < 10:
+while curr_time <= 30:
     read_sensors()
     print(f"\nTime = {curr_time:.3f}s")
     print("-----Accelerometer-----")
