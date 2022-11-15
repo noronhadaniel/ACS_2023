@@ -61,9 +61,9 @@ def gen_phi(dt):
     ds = 0 # filler
     di = (dt**2)/2 # differences in time from current to previous state
 
-    phi = np.array([dp, dt, di],
+    phi = np.array([[dp, dt, di],
                    [ds, dp, dt],
-                   [ds, ds, dp])
+                   [ds, ds, dp]])
 
     return phi
 
@@ -96,12 +96,8 @@ def filter_data():
     # Read sensor data
     measurements = []
     measurements.append(float(sensors.altitude))
-    measurements.extend([float(sensors.acceleration_acce_x), 
-                        float(sensors.acceleration_acce_y), 
-                        float(transform_accelerometer(sensors.acceleration_acce_z))])
-    measurements.extend([float(sensors.linacceleration_imu_x),
-                        float(sensors.linacceleration_imu_y),
-                        float(transform_IMU(sensors.linacceleration_imu_z))])
+    measurements.append(float(transform_accelerometer(sensors.acceleration_acce_z)))
+    measurements.append(float(transform_IMU(sensors.linacceleration_imu_z)))
 
     t = float(sensors.curr_time)
     dt = get_dt(t)
