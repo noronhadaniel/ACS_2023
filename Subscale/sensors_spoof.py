@@ -1,4 +1,4 @@
-from pandas import *
+import pandas
 from flags import FAKE_DATA_FILE
 
 accelerometer = None
@@ -25,7 +25,7 @@ altitude = 0
 
 ### Reading the data file
 
-Fake_data = read_csv(FAKE_DATA_FILE)
+Fake_data = pandas.read_csv(FAKE_DATA_FILE)
 
 Time_list = iter(Fake_data['Time'].tolist())
 ADXL_Acceleration_X = iter(Fake_data['ADXL_Acceleration_X'].tolist())
