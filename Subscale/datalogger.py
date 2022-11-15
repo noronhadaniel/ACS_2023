@@ -6,11 +6,13 @@ if FAKE_DATA:
 else:
     import sensors
 
-path = '../_data/'
 if FAKE_DATA:
     name = 'fake_data'
+    path = '../test_data/'
 else:
     name = 'data'
+    path = '../_data/'
+
 extension = '.csv'
 filename = None
 f = None
