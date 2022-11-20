@@ -75,27 +75,27 @@ def new_CSV(filename: str, header: list) -> bool:
 
 def addRow(f) -> bool:
     row = [
-            "%.4f" % sensors.curr_time,
-            "%.4f" % sensors.acceleration_acce_x,
-            "%.4f" % sensors.acceleration_acce_y,
-            "%.4f" % sensors.acceleration_acce_z,
-            "%.4f" % sensors.altitude,
-            "%.4f" % sensors.acceleration_imu_x,
-            "%.4f" % sensors.acceleration_imu_y,
-            "%.4f" % sensors.acceleration_imu_z,
-            "%.4f" % sensors.linacceleration_imu_x,
-            "%.4f" % sensors.linacceleration_imu_y,
-            "%.4f" % sensors.linacceleration_imu_z,
-            "%.4f" % sensors.eulerangle_imu_x,
-            "%.4f" % sensors.eulerangle_imu_y,
-            "%.4f" % sensors.eulerangle_imu_z,
-            "%.4f" % sensors.gravity_imu_x,
-            "%.4f" % sensors.gravity_imu_y,
-            "%.4f" % sensors.gravity_imu_z,
-            "%.4f" % data_filter.kalman_acceleration,
-            "%.4f" % data_filter.kalman_velocity,
-            "%.4f" % data_filter.kalman_altitude,
-            "%.4f" % data_filter.orientation_beta
+            sensors.curr_time,
+            sensors.acceleration_acce_x,
+            sensors.acceleration_acce_y,
+            sensors.acceleration_acce_z,
+            sensors.altitude,
+            sensors.acceleration_imu_x,
+            sensors.acceleration_imu_y,
+            sensors.acceleration_imu_z,
+            sensors.linacceleration_imu_x,
+            sensors.linacceleration_imu_y,
+            sensors.linacceleration_imu_z,
+            sensors.eulerangle_imu_x,
+            sensors.eulerangle_imu_y,
+            sensors.eulerangle_imu_z,
+            sensors.gravity_imu_x,
+            sensors.gravity_imu_y,
+            sensors.gravity_imu_z,
+            data_filter.kalman_acceleration,
+            data_filter.kalman_velocity,
+            data_filter.kalman_altitude,
+            data_filter.orientation_beta
         ]
     csv.writer(f).writerow(row)
     return True

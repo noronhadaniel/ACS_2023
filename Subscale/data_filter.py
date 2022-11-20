@@ -13,7 +13,7 @@ my_filter = None
 kalman_altitude = 0
 kalman_velocity = 0
 kalman_acceleration = 0
-orientation_beta = 0 # Beta Euler angle (relative to z axis, where z points up)
+orientation_beta = 0 # Beta Euler angle (relative to z axis, where z points up); this is imu_euler_y
 
 # Previous Time
 t_prev = None
@@ -70,17 +70,17 @@ def gen_phi(dt):
 # Calibrate sensors output (reads in tuple of sensor data)
 def transform_accelerometer(in_accel):
     if FAKE_DATA:
-        out_accel = (float(in_accel)) - 9.80665
+        out_accel = (float(in_accel)) - 10.2349307
     else:
-        out_accel = (float(in_accel)) - 9.80665
+        out_accel = (float(in_accel)) - 10.2349307
 
     return out_accel
 
 def transform_IMU(in_accel):
     if FAKE_DATA:
-        out_accel = (float(in_accel)) - 9.80665
+        out_accel = (float(in_accel)) + 0.0353742 # May need to multiply the whole thing with -1
     else:
-        out_accel = (float(in_accel)) - 9.80665
+        out_accel = (float(in_accel)) + 0.0353742 # May need to multiply the whole thing with -1
 
     return out_accel
 
@@ -96,8 +96,8 @@ def filter_data():
     # Read sensor data
     measurements = []
     measurements.append(float(sensors.altitude))
-    measurements.append(float(transform_accelerometer(sensors.acceleration_acce_z)))
-    measurements.append(float(transform_IMU(sensors.linacceleration_imu_z)))
+    measurements.append(float(transform_accelerometer(sensors.acceleration_acce_x)))
+    measurements.append(float(transform_IMU(sensors.linacceleration_imu_x)))
 
     t = float(sensors.curr_time)
     dt = get_dt(t)
@@ -112,5 +112,5 @@ def filter_data():
 
     # Log the output
     kalman_altitude, kalman_velocity, kalman_acceleration = my_filter.x
-    orientation_beta = sensors.eulerangle_imu_z # Beta angle between rotated and fixed coordinate z-axis
+    orientation_beta = sensors.eulerangle_imu_y + 90 # Beta angle between rotated and fixed coordinate z-axis
     #^CHANGE!
