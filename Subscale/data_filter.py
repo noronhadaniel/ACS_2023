@@ -24,8 +24,8 @@ def initialize_filter():
 
     # Initializing what sensor data is being read
     sensorMatrix = [[1,0,0], 
-                    [0,0,1],
                     [0,0,1]]
+                    # [0,0,1]]
 
     # Initializing Kalman Filter function
     my_filter = KalmanFilter(dim_x=3, dim_z=len(sensorMatrix))
@@ -97,7 +97,7 @@ def filter_data():
     measurements = []
     measurements.append(float(sensors.altitude))
     measurements.append(float(transform_accelerometer(sensors.acceleration_acce_x)))
-    measurements.append(float(transform_IMU(sensors.linacceleration_imu_x)))
+    # measurements.append(float(transform_IMU(sensors.linacceleration_imu_x)))
 
     t = float(sensors.curr_time)
     dt = get_dt(t)
@@ -113,4 +113,4 @@ def filter_data():
     # Log the output
     kalman_altitude, kalman_velocity, kalman_acceleration = my_filter.x
     orientation_beta = sensors.eulerangle_imu_y + 90 # Beta angle between rotated and fixed coordinate z-axis
-    #^CHANGE!
+    

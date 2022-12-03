@@ -35,6 +35,7 @@ def init_time() -> bool:
 
 def init_accelerometer() -> bool:
     global accelerometer
+    adafruit_adxl34x.Range.RANGE_16_G
     accelerometer = adafruit_adxl34x.ADXL343(i2c)
     return True
 
