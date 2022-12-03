@@ -116,10 +116,21 @@ export PYTHONPATH=$PYTHONPATH:/home/pi/ACS_2023/Libraries
 alias ll='ls -la'
 alias cls='clear'
 
+echo "Hello! This is the Notre Dame Rocketry Team's Apogee Control System (ACS)"
+echo "Please review the flags.py file below to ensure it is accurate"
 cd ACS_2023/Subscale
 cat flags.py
+sleep 1;
+echo " "
+echo "To halt ACS activation, press Ctrl-C before ACS is activated." 
+echo "ACS will activate in..."
+echo "3"; sleep 1
+echo "2"; sleep 1
+echo "1"; sleep 1
+echo "ACS is now Active! Good Luck!"
 python3 acs.py
 
 ## sudo sh -c "echo none > /sys/class/leds/led0/trigger" (replace none with mmc0 for default green LED behavior)
 # sudo sh -c "echo 0 > /sys/class/leds/led0/brightness"
 # sudo sh -c "echo 1 > /sys/class/leds/led0/brightness"
+
