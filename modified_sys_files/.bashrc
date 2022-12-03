@@ -116,6 +116,7 @@ export PYTHONPATH=$PYTHONPATH:/home/pi/ACS_2023/Libraries
 alias ll='ls -la'
 alias cls='clear'
 
+echo " "
 echo "Hello! This is the Notre Dame Rocketry Team's Apogee Control System (ACS)"
 echo "Please review the flags.py file below to ensure it is accurate"
 cd ACS_2023/Subscale

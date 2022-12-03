@@ -35,8 +35,8 @@ def init_time() -> bool:
 
 def init_accelerometer() -> bool:
     global accelerometer
-    adafruit_adxl34x.Range.RANGE_16_G
     accelerometer = adafruit_adxl34x.ADXL343(i2c)
+    accelerometer.range = adafruit_adxl34x.Range.RANGE_16_G
     return True
 
 def init_altimeter(zero=True,sealevelpressure=101000) -> bool:
