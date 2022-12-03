@@ -78,9 +78,9 @@ def transform_accelerometer(in_accel):
 
 def transform_IMU(in_accel):
     if FAKE_DATA:
-        out_accel = ((float(in_accel)) + 0.0353742)*-1 # May need to multiply the whole thing with -1
+        out_accel = ((float(in_accel)) + 0.0353742)*-1 
     else:
-        out_accel = ((float(in_accel)) + 0.0353742)*-1 # May need to multiply the whole thing with -1
+        out_accel = ((float(in_accel)) + 0.0353742)*-1 
 
     return out_accel
 
