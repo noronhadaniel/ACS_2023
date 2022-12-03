@@ -6,6 +6,7 @@ import sys
 i2c = board.I2C()
 
 accelerometer = adafruit_adxl34x.ADXL343(i2c)
+accelerometer.range = adafruit_adxl34x.Range.RANGE_16_G
 
 start_time = time.time()
 samples = 0
