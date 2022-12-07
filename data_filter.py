@@ -19,9 +19,9 @@ class DataFilter:
         # Initializing what sensor data is being read
         sensor_matrix = [
             [1, 0, 0],
-            [0, 0, 1],
             [0, 0, 1]
         ]
+            #[0, 0, 1]
 
         # Initializing Kalman Filter function
         self.filter = KalmanFilter(dim_x=3, dim_z=len(sensor_matrix))
@@ -62,9 +62,9 @@ class DataFilter:
         # Read sensor data
         measurements = [
             float(altitude),
-            float(acceleration_acce_z - 9.80665),
-            float(linacceleration_imu_z - 9.80665)
+            float(acceleration_acce_z - 9.80665)
         ]
+            # float(linacceleration_imu_z - 9.80665)
 
         # Update filter parameters
         params = np.array(measurements)
