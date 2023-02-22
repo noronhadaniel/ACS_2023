@@ -6,7 +6,7 @@ import numpy as np
 
 class DataFilter:
     def __init__(self, spoof=None):
-        self.spoof = spoof
+        self.spoof = None
         if self.spoof is not None:
             self.kalman_altitude_gen = iter((0, *spoof["Kalman_Altitude"]))
             self.kalman_velocity_gen = iter((0, *spoof["Kalman_Velocity"]))

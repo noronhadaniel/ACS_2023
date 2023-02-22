@@ -8,7 +8,7 @@ SERVO_BURNOUT_ANGLE = 50
 SERVO_CHANNEL = 1
 
 SPOOF_FILE = None
-SPOOF_FILE = "./test_data/test_Truncated_ACS_Fullscale_Launch_Data_20221120.csv"
+#SPOOF_FILE = "./test_data/test_Truncated_ACS_Fullscale_Launch_Data_20221120.csv"
 
 if SPOOF_FILE is not None:
     import pandas
@@ -97,7 +97,8 @@ while True:
 
         # Finally, log the sensor values before repeating the cycle.
         sensor_logger.log()
-        time.sleep(0.04)
+        if SPOOF_FILE is not None:
+            time.sleep(0.04)
     except Exception:
         kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE
         buzzer.frequency = 256
