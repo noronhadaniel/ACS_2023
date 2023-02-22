@@ -1,10 +1,10 @@
 """
 acs.py contains the main ACS control flow. This is where it all happens.
 """
-MIN_SERVO_ANGLE = 16
-MAX_SERVO_ANGLE = 60
-SERVO_INIT_ANGLE = 36
-SERVO_BURNOUT_ANGLE = 55
+MIN_SERVO_ANGLE = 25
+MAX_SERVO_ANGLE = 70
+SERVO_INIT_ANGLE = 40
+SERVO_BURNOUT_ANGLE = 50
 SERVO_CHANNEL = 1
 
 SPOOF_FILE = None
@@ -50,7 +50,7 @@ buzzer.duty_cycle = 0
 # Initialize servor motor.
 kit = ServoKit(channels=16)
 kit.servo[SERVO_CHANNEL].set_pulse_width_range(500, 2400)
-kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #16
+kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #25
 time.sleep(1)
 kit.servo[SERVO_CHANNEL].angle = SERVO_INIT_ANGLE #36
 time.sleep(1)
@@ -90,9 +90,9 @@ while True:
             activated = False
             kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #16
         elif sensor_manager.time - burnout_time >= 3 and activated: 
-            kit.servo[SERVO_CHANNEL].angle = 55
+            kit.servo[SERVO_CHANNEL].angle = 65
         elif sensor_manager.time - burnout_time >= 1 and activated: 
-            kit.servo[SERVO_CHANNEL].angle = 40
+            kit.servo[SERVO_CHANNEL].angle = 50
         
 
         # Finally, log the sensor values before repeating the cycle.
