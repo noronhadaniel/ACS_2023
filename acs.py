@@ -97,8 +97,6 @@ while True:
 
         # Finally, log the sensor values before repeating the cycle.
         sensor_logger.log()
-        if SPOOF_FILE is not None:
-            time.sleep(0.04)
     except Exception:
         kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE
         buzzer.frequency = 256

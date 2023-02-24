@@ -6,22 +6,20 @@ import numpy as np
 
 class DataFilter:
     def __init__(self, spoof=None):
-        self.spoof = None
+        self.spoof = spoof
+
+        self._dt = 0
+        self._t_prev = None
+        self._initialize_filter()
+        
         if self.spoof is not None:
-            self.kalman_altitude_gen = iter((0, *spoof["Kalman_Altitude"]))
-            self.kalman_velocity_gen = iter((0, *spoof["Kalman_Velocity"]))
-            self.kalman_acceleration_gen = iter((0, *spoof["Kalman_Acceleration"]))
-            self.orientation_beta_gen = iter((0, *spoof["Orientation(Beta)"]))
+            self.time_gen = iter((0, *spoof["Time"]))
             return
 
         self.kalman_altitude = 0
         self.kalman_velocity = 0
         self.kalman_acceleration = 0
         self.orientation_beta = 0
-        self._dt = 0
-        self._t_prev = None
-
-        self._initialize_filter()
 
     def _initialize_filter(self):
         # Initializing what sensor data is being read
@@ -52,7 +50,10 @@ class DataFilter:
         self._t_prev = in_time
 
     def _generate_phi(self):
-        self._calculate_dt(time.time())
+        if self.spoof is not None:
+            self._calculate_dt(next(self.time_gen))
+        else:
+            self._calculate_dt(time.time())
 
         dp = 1
         ds = 0  # filler
@@ -67,13 +68,6 @@ class DataFilter:
         return phi
 
     def filter_data(self, altitude, acceleration_acce_z, linacceleration_imu_z, eulerangle_imu_z):
-        if self.spoof is not None:
-            self.kalman_altitude = next(self.kalman_altitude_gen)
-            self.kalman_velocity = next(self.kalman_velocity_gen)
-            self.kalman_acceleration = next(self.kalman_acceleration_gen)
-            self.orientation_beta = next(self.orientation_beta_gen)
-            return
-
         # Read sensor data
         measurements = [
             float(altitude),
