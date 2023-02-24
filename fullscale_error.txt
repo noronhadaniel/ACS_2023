@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/home/pi/ACS_2023/acs.py", line 73, in <module>
-    senso_manager.read_sensors()
-NameError: name 'senso_manager' is not defined

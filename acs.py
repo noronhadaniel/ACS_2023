@@ -14,6 +14,8 @@ if SPOOF_FILE is not None:
     import pandas
 
 import time
+import datetime
+import traceback
 
 from adafruit_servokit import ServoKit
 import board
@@ -94,13 +96,30 @@ while True:
         elif sensor_manager.time - burnout_time >= 1 and activated: 
             kit.servo[SERVO_CHANNEL].angle = 50
         
-
         # Finally, log the sensor values before repeating the cycle.
         sensor_logger.log()
+        # Wait for servo actuation if using fake data:
+        if SPOOF_FILE is not None:
+            time.sleep(0.04) # Simulates 25Hz
+        
     except Exception:
+        # Report Issue
+        print("Sorry, this program is experiencing a glitch :(")
+        # Close data file
+        sensor_logger.file.close()        
+        # Log Error
+        with open('log_fullscale_error.txt','a') as err_log:
+            err_log.write(datetime.date.today().ctime())
+            err_log.write("\n")
+            err_log.write(traceback.format_exc()) 
+            err_log.write("\n")
+        # Retract Flaps
         kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE
+        
+        # Give audio feedback and raise exception 
         buzzer.frequency = 256
         buzzer.duty_cycle = 2**15
         time.sleep(10)
         buzzer.duty_cycle = 0
         raise
+
