@@ -8,7 +8,7 @@ SERVO_BURNOUT_ANGLE = 50
 SERVO_CHANNEL = 1
 
 SPOOF_FILE = None
-#SPOOF_FILE = "./test_data/test_Truncated_ACS_Fullscale_Launch_Data_20221120.csv"
+#SPOOF_FILE = "./test_data/test_Truncated_ACS_Fullscale_Launch_Data_20230218.csv"
 
 if SPOOF_FILE is not None:
     import pandas
