@@ -19,21 +19,16 @@ import traceback
 
 from adafruit_servokit import ServoKit
 import board
-import pwmio
 
+from buzzer import Buzzer
 from sensor_logger import SensorLogger
 from sensor_manager import SensorManager
 from sensors import Accelerometer, Altimeter, IMU
 from state import State
 import utils
 
-buzzer = pwmio.PWMOut(board.D13, variable_frequency=False)
-
-buzzer.frequency = 440
-buzzer.duty_cycle = 2**15
-time.sleep(1)
-buzzer.duty_cycle = 0
-
+buzzer = Buzzer(board.D13)
+buzzer.beep(1)
 
 if SPOOF_FILE is None:
     brd = board.I2C()
@@ -45,9 +40,7 @@ else:
 sensor_logger = SensorLogger(utils.DATA_PATH + "/data_" + utils.file_number() + ".csv", sensor_manager)
 
 buzzer.frequency = 880
-buzzer.duty_cycle = 2**15
-time.sleep(1)
-buzzer.duty_cycle = 0
+buzzer.beep(1)
 
 # Initialize servor motor.
 kit = ServoKit(channels=16)
@@ -64,9 +57,7 @@ deactivated = False
 burnout_time = float("inf")
 
 buzzer.frequency = 1760
-buzzer.duty_cycle = 2**15
-time.sleep(1)
-buzzer.duty_cycle = 0
+buzzer.beep(1)
 
 while True:
     try:
@@ -118,8 +109,6 @@ while True:
         
         # Give audio feedback and raise exception 
         buzzer.frequency = 256
-        buzzer.duty_cycle = 2**15
-        time.sleep(10)
-        buzzer.duty_cycle = 0
+        buzzer.beep(10)
         raise
 
