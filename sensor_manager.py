@@ -60,6 +60,10 @@ class SensorManager:
         elif self.state == State.OVERSHOOT and self.kalman_altitude > APOGEE_ALTITUDE and self.kalman_velocity < APOGEE_VELOCITY:
             self.state = State.APOGEE
 
+    def _calculate_predicted_apogee(self):
+        delta_y = (-self.kalman_velocity ** 2) / (2 * self.kalman_acceleration)
+        return self.kalman_altitude + delta_y
+
     def read_sensors(self):
         """
         The read_sensors function reads a new iteration of all sensor values.
@@ -109,6 +113,9 @@ class SensorManager:
         self.kalman_velocity = self.filter.kalman_velocity
         self.kalman_altitude = self.filter.kalman_altitude
         self.orientation_beta = self.filter.orientation_beta # Initial values for calibration: 359.9375, -0.125, -87.25
+
+        # Predict apogee.
+        self.predicted_apogee = self._calculate_predicted_apogee()
 
         # Update state.
         # Note that we can also treat the state as another sensor,
