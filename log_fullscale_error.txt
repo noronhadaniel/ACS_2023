@@ -1,0 +1,31 @@
+Tue Feb 28 00:00:00 2023
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 75, in <module>
+  File "/home/pi/ACS_2023/sensor_manager.py", line 87, in read_sensors
+    self.acceleration_imu = self.imu.acceleration_imu
+  File "/home/pi/ACS_2023/sensors.py", line 128, in acceleration_imu
+    value = self.imu.acceleration
+  File "/home/pi/.local/lib/python3.9/site-packages/adafruit_bno055.py", line 415, in acceleration
+    if self.mode not in [0x00, 0x02, 0x03, 0x06]:
+  File "/home/pi/.local/lib/python3.9/site-packages/adafruit_bno055.py", line 356, in mode
+    return self._read_register(_MODE_REGISTER) & 0b00001111  # Datasheet Table 4-2
+  File "/home/pi/.local/lib/python3.9/site-packages/adafruit_bno055.py", line 802, in _read_register
+    i2c.write_then_readinto(self.buffer, self.buffer, out_end=1, in_start=1)
+  File "/usr/local/lib/python3.9/dist-packages/adafruit_bus_device/i2c_device.py", line 141, in write_then_readinto
+    self.i2c.writeto_then_readfrom(
+  File "/usr/local/lib/python3.9/dist-packages/busio.py", line 192, in writeto_then_readfrom
+    return self._i2c.writeto_then_readfrom(
+  File "/usr/local/lib/python3.9/dist-packages/adafruit_blinka/microcontroller/generic_linux/i2c.py", line 90, in writeto_then_readfrom
+    readin = self._i2c_bus.read_i2c_block_data(
+  File "/usr/local/lib/python3.9/dist-packages/Adafruit_PureIO/smbus.py", line 275, in read_i2c_block_data
+    ioctl(self._device.fileno(), I2C_RDWR, request)
+OSError: [Errno 121] Remote I/O error
+
+Tue Feb 28 00:00:00 2023
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 66, in <module>
+    sensor_manager.read_sensors()
+  File "/home/pi/ACS_2023/sensor_manager.py", line 77, in read_sensors
+    self.time = next(self.time_gen)
+StopIteration
+

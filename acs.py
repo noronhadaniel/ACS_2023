@@ -7,8 +7,8 @@ SERVO_INIT_ANGLE = 40
 SERVO_BURNOUT_ANGLE = 50
 SERVO_CHANNEL = 1
 
-SPOOF_FILE = None
-#SPOOF_FILE = "./test_data/test_Truncated_ACS_Fullscale_Launch_Data_20230218.csv"
+#SPOOF_FILE = None
+SPOOF_FILE = "./_data/data_01.csv"
 
 if SPOOF_FILE is not None:
     import pandas
@@ -89,9 +89,6 @@ while True:
         
         # Finally, log the sensor values before repeating the cycle.
         sensor_logger.log()
-        # Wait for servo actuation if using fake data:
-        if SPOOF_FILE is not None:
-            time.sleep(0.04) # Simulates 25Hz
         
     except Exception:
         # Report Issue
