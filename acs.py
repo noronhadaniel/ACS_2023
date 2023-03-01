@@ -20,16 +20,17 @@ import traceback
 if SPOOF_FILE is None:
     from adafruit_servokit import ServoKit
     import board
-
-from buzzer import Buzzer
+    from buzzer import Buzzer
+    
 from sensor_logger import SensorLogger
 from sensor_manager import SensorManager
 from sensors import Accelerometer, Altimeter, IMU
 from state import State
 import utils
 
-buzzer = Buzzer(board.D13)
-buzzer.beep(1)
+if SPOOF_FILE is None:
+    buzzer = Buzzer(board.D13)
+    buzzer.beep(1)
 
 if SPOOF_FILE is None:
     brd = board.I2C()
@@ -40,8 +41,9 @@ else:
 
 sensor_logger = SensorLogger(utils.DATA_PATH + "/data_" + utils.file_number() + ".csv", sensor_manager)
 
-buzzer.frequency = 880
-buzzer.beep(1)
+if SPOOF_FILE is None:
+    buzzer.frequency = 880
+    buzzer.beep(1)
 
 # Initialize servor motor.
 if SPOOF_FILE is None:
@@ -58,8 +60,9 @@ activated = False
 deactivated = False
 burnout_time = float("inf")
 
-buzzer.frequency = 1760
-buzzer.beep(1)
+if SPOOF_FILE is None:
+    buzzer.frequency = 1760
+    buzzer.beep(1)
 
 while True:
     try:
