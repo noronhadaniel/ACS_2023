@@ -19,8 +19,7 @@ import traceback
 
 if SPOOF_FILE is None:
     from adafruit_servokit import ServoKit
-
-import board
+    import board
 
 from buzzer import Buzzer
 from sensor_logger import SensorLogger
