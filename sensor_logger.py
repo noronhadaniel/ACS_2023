@@ -58,6 +58,6 @@ class SensorLogger:
             "%.4f" % self.sensor_manager.kalman_velocity,
             "%.4f" % self.sensor_manager.kalman_altitude,
             "%.4f" % self.sensor_manager.orientation_beta,
-            "%.4f" % self.sensor_manager.predicted_apogee
+            # "%.4f" % self.sensor_manager.predicted_apogee
         ]
         csv.writer(self.file).writerow(row)
