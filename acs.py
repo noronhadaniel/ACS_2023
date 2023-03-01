@@ -17,10 +17,10 @@ import time
 import datetime
 import traceback
 
-if SPOOF_FILE is None:
-    from adafruit_servokit import ServoKit
-    import board
-    from buzzer import Buzzer
+
+from adafruit_servokit import ServoKit
+import board
+from buzzer import Buzzer
     
 from sensor_logger import SensorLogger
 from sensor_manager import SensorManager
@@ -28,9 +28,8 @@ from sensors import Accelerometer, Altimeter, IMU
 from state import State
 import utils
 
-if SPOOF_FILE is None:
-    buzzer = Buzzer(board.D13)
-    buzzer.beep(1)
+buzzer = Buzzer(board.D13)
+buzzer.beep(1)
 
 if SPOOF_FILE is None:
     brd = board.I2C()
@@ -41,28 +40,26 @@ else:
 
 sensor_logger = SensorLogger(utils.DATA_PATH + "/data_" + utils.file_number() + ".csv", sensor_manager)
 
-if SPOOF_FILE is None:
-    buzzer.frequency = 880
-    buzzer.beep(1)
+
+buzzer.frequency = 880
+buzzer.beep(1)
 
 # Initialize servor motor.
-if SPOOF_FILE is None:
-    kit = ServoKit(channels=16)
-    kit.servo[SERVO_CHANNEL].set_pulse_width_range(500, 2400)
-    kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #25
-    time.sleep(1)
-    kit.servo[SERVO_CHANNEL].angle = SERVO_INIT_ANGLE #36
-    time.sleep(1)
-    kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #16
-    time.sleep(1)
+kit = ServoKit(channels=16)
+kit.servo[SERVO_CHANNEL].set_pulse_width_range(500, 2400)
+kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #25
+time.sleep(1)
+kit.servo[SERVO_CHANNEL].angle = SERVO_INIT_ANGLE #36
+time.sleep(1)
+kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #16
+time.sleep(1)
 
 activated = False
 deactivated = False
 burnout_time = float("inf")
 
-if SPOOF_FILE is None:
-    buzzer.frequency = 1760
-    buzzer.beep(1)
+buzzer.frequency = 1760
+buzzer.beep(1)
 
 while True:
     try:
@@ -86,14 +83,11 @@ while True:
         elif sensor_manager.time - burnout_time >= 5 and activated: 
             deactivated = True
             activated = False
-            if SPOOF_FILE is None:
-                kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #16
+            kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #16
         elif sensor_manager.time - burnout_time >= 3 and activated:
-            if SPOOF_FILE is None:
-                kit.servo[SERVO_CHANNEL].angle = 65
+            kit.servo[SERVO_CHANNEL].angle = 65
         elif sensor_manager.time - burnout_time >= 1 and activated: 
-            if SPOOF_FILE is None:
-                kit.servo[SERVO_CHANNEL].angle = 50
+            kit.servo[SERVO_CHANNEL].angle = 50
         
         # Finally, log the sensor values before repeating the cycle.
         sensor_logger.log()
