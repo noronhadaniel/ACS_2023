@@ -17,7 +17,9 @@ import time
 import datetime
 import traceback
 
-from adafruit_servokit import ServoKit
+if SPOOF_FILE is None:
+    from adafruit_servokit import ServoKit
+
 import board
 
 from buzzer import Buzzer
