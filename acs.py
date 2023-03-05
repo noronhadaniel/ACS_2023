@@ -1,11 +1,6 @@
 """
 acs.py contains the main ACS control flow. This is where it all happens.
 """
-MIN_SERVO_ANGLE = 25
-MAX_SERVO_ANGLE = 70
-SERVO_INIT_ANGLE = 40
-SERVO_BURNOUT_ANGLE = 50
-SERVO_CHANNEL = 1
 
 #SPOOF_FILE = None
 SPOOF_FILE = "./_data/data_01.csv"
@@ -13,18 +8,16 @@ SPOOF_FILE = "./_data/data_01.csv"
 if SPOOF_FILE is not None:
     import pandas
 
-import time
 import datetime
 import traceback
 
-
-from adafruit_servokit import ServoKit
 import board
+
 from buzzer import Buzzer
-    
 from sensor_logger import SensorLogger
 from sensor_manager import SensorManager
 from sensors import Accelerometer, Altimeter, IMU
+from servo import Servo
 from state import State
 import utils
 
@@ -45,14 +38,7 @@ buzzer.frequency = 880
 buzzer.beep(1)
 
 # Initialize servor motor.
-kit = ServoKit(channels=16)
-kit.servo[SERVO_CHANNEL].set_pulse_width_range(500, 2400)
-kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #25
-time.sleep(1)
-kit.servo[SERVO_CHANNEL].angle = SERVO_INIT_ANGLE #36
-time.sleep(1)
-kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #16
-time.sleep(1)
+servo = Servo(channels=16)
 
 activated = False
 deactivated = False
@@ -83,11 +69,11 @@ while True:
         elif sensor_manager.time - burnout_time >= 5 and activated: 
             deactivated = True
             activated = False
-            kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE #16
+            servo.angle = Servo.SERVO_MIN
         elif sensor_manager.time - burnout_time >= 3 and activated:
-            kit.servo[SERVO_CHANNEL].angle = 65
+            servo.angle = 65
         elif sensor_manager.time - burnout_time >= 1 and activated: 
-            kit.servo[SERVO_CHANNEL].angle = 50
+            servo.angle = 50
         
         # Finally, log the sensor values before repeating the cycle.
         sensor_logger.log()
@@ -104,7 +90,7 @@ while True:
             err_log.write(traceback.format_exc()) 
             err_log.write("\n")
         # Retract Flaps
-        kit.servo[SERVO_CHANNEL].angle = MIN_SERVO_ANGLE
+        servo.angle = Servo.SERVO_MIN
         
         # Give audio feedback and raise exception 
         buzzer.frequency = 256
