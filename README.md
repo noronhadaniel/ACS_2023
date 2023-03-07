@@ -16,7 +16,8 @@ VNC Viewer (Remote Desktop):
 4. When finished, disconnect the VNC Viewer and run `vncserver -kill :1' to kill connection 1 (check ~/.vnc to make sure no .pid process files exist)
 
 ## Batteries
-* YDL PL 115659 3.7V LiPo (5000mAh)
+* YDL PL 115659 3.7V LiPo (5000mAh Logic Circuit Battery)
+* 7.4V 2S 3000mAh LiPo (Servo Motor Battery)
 
 ## Sensors
 
