@@ -14,7 +14,7 @@ import traceback
 import board
 
 from buzzer import Buzzer
-from sensor_logger import SensorLogger
+from logger import Logger
 from sensor_manager import SensorManager
 from sensors import Accelerometer, Altimeter, IMU
 from servo import Servo
@@ -31,14 +31,13 @@ else:
     df = pandas.read_csv(SPOOF_FILE)
     sensor_manager = SensorManager(Accelerometer(None, spoof=df), Altimeter(None, spoof=df), IMU(None, spoof=df), spoof=df)
 
-sensor_logger = SensorLogger(utils.DATA_PATH + "/data_" + utils.file_number() + ".csv", sensor_manager)
-
-
 buzzer.frequency = 880
 buzzer.beep(1)
 
 # Initialize servor motor.
 servo = Servo(channels=16)
+
+logger = Logger(utils.DATA_PATH + "/data_" + utils.file_number() + ".csv", sensor_manager, servo)
 
 activated = False
 deactivated = False
@@ -76,13 +75,13 @@ while True:
             servo.angle = 50
         
         # Finally, log the sensor values before repeating the cycle.
-        sensor_logger.log()
+        logger.log()
         
     except Exception:
         # Report Issue
         print("Sorry, this program is experiencing a glitch :(")
         # Close data file
-        sensor_logger.file.close()        
+        logger.file.close()
         # Log Error
         with open('log_fullscale_error.txt','a') as err_log:
             err_log.write(datetime.date.today().ctime())

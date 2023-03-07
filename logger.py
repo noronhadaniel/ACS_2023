@@ -1,5 +1,5 @@
 """
-sensor_logger.py contains the implementation of SensorLogger,
+logger.py contains the implementation of Logger,
 which is responsible for writing the time, state, and sensor values
 to a CSV for later inspection.
 """
@@ -7,13 +7,15 @@ to a CSV for later inspection.
 import csv
 
 from sensor_manager import SensorManager
+from servo import Servo
 from utils import HEADERS
 
 
-class SensorLogger:
-    def __init__(self, name: str, sensor_manager: SensorManager):
+class Logger:
+    def __init__(self, name: str, sensor_manager: SensorManager, servo: Servo):
         self.name = name
         self.sensor_manager = sensor_manager
+        self.servo = servo
 
         self._initialize_csv()
 
@@ -59,5 +61,6 @@ class SensorLogger:
             "%.4f" % self.sensor_manager.kalman_altitude,
             "%.4f" % self.sensor_manager.orientation_beta,
             # "%.4f" % self.sensor_manager.predicted_apogee
+            "%.4f" % self.servo.angle
         ]
         csv.writer(self.file).writerow(row)
