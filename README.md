@@ -32,6 +32,7 @@ VNC Viewer (Remote Desktop):
 Raspberry Pi 4 Model B (4GB RAM)
 
 ## Actuator
+DSSERVO DS5180 80kg High-Torque Standard Servo Motor
 
 ## Subscale Workflow
 
