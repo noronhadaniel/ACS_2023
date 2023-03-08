@@ -24,7 +24,8 @@ VNC Viewer (Remote Desktop):
 |  Sensor Type  | Sensor Model |
 | ------------- | ------------ |
 | Accelerometer |    ADXL343   |
-|   Altimeter   |   MPL3115A2  |
+|  Altimeter 1  |   MPL3115A2  |
+|  Altimeter 2  |     BMP390   |
 |      IMU      |     BNO055   |
 
 ## Microcontroller
