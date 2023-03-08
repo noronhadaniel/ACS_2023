@@ -43,13 +43,8 @@ Raspberry Pi 4 Model B (4GB RAM)
 * Add sensor data to new row in CSV file
 * Loop indefinitely
 
-## Fullscale Workflow
-
-*
-  *
-  *
-*
-*
+## Fullscale Workflow (Control Code Flowchart)
+![image](https://user-images.githubusercontent.com/91227299/223595209-889868e9-dea8-4749-9dbb-75108b3a8092.png)
 
 ## Miscellaneous Notes/Troubleshooting
 * Command: `ssh pi@mulberry`
