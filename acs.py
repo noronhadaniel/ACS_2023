@@ -97,7 +97,7 @@ while True:
         logger.file.close()
         # Log Error
         with open('log_fullscale_error.txt','a') as err_log:
-            err_log.write(datetime.date.today().ctime())
+            err_log.write(str(datetime.datetime.now()))
             err_log.write("\n")
             err_log.write(traceback.format_exc()) 
             err_log.write("\n")
