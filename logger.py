@@ -7,15 +7,17 @@ to a CSV for later inspection.
 import csv
 
 from sensor_manager import SensorManager
+from proportional_controller import Proportional_Controller
 from servo import Servo
 from utils import HEADERS
 
 
 class Logger:
-    def __init__(self, name: str, sensor_manager: SensorManager, servo: Servo):
+    def __init__(self, name: str, sensor_manager: SensorManager, servo: Servo, proportional_controller: Proportional_Controller):
         self.name = name
         self.sensor_manager = sensor_manager
         self.servo = servo
+        self.proportional_controller = proportional_controller
 
         self._initialize_csv()
 
@@ -38,6 +40,7 @@ class Logger:
         """
 
         row = [
+            self.sensor_manager.readings,
             "%.4f" % self.sensor_manager.time,
             self.sensor_manager.state.name,
             "%.4f" % self.sensor_manager.altitude,
@@ -61,6 +64,8 @@ class Logger:
             "%.4f" % self.sensor_manager.kalman_altitude,
             "%.4f" % self.sensor_manager.orientation_beta,
             # "%.4f" % self.sensor_manager.predicted_apogee
-            "%.4f" % self.servo.angle
+            "%.4f" % self.servo.angle,
+            "%.4f" % self.proportional_controller.apogee_projected,
+            "%.4f" % self.proportional_controller.apogee_error
         ]
         csv.writer(self.file).writerow(row)

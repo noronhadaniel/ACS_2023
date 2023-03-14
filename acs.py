@@ -3,7 +3,7 @@ acs.py contains the main ACS control flow. This is where it all happens.
 """
 
 SPOOF_FILE = None
-#SPOOF_FILE = "./_data/data_01.csv"
+SPOOF_FILE = "./_data/data_01.csv"
 
 if SPOOF_FILE is not None:
     import pandas
@@ -19,6 +19,7 @@ from sensor_manager import SensorManager
 from sensors import Accelerometer, Altimeter, IMU
 from servo import Servo
 from state import State
+from proportional_controller import Proportional_Controller
 import utils
 
 buzzer = Buzzer(board.D13)
@@ -37,7 +38,10 @@ buzzer.beep(1)
 # Initialize servor motor.
 servo = Servo(channels=16)
 
-logger = Logger(utils.DATA_PATH + "/data_" + utils.file_number() + ".csv", sensor_manager, servo)
+# Initialize proportional controller
+proportional_controller = Proportional_Controller(sensor_manager, servo)
+
+logger = Logger(utils.DATA_PATH + "/data_" + utils.file_number() + ".csv", sensor_manager, servo, proportional_controller)
 
 activated = False
 deactivated = False
@@ -60,11 +64,20 @@ while True:
         print("Frequency: " + str(sensor_manager.readings / sensor_manager.time))
         print("State: " + sensor_manager.state.name)
 
-        if sensor_manager.state == State.BURNOUT and not activated and not deactivated:
+        if sensor_manager.state == State.BURNOUT: #and not activated and not deactivated:
+            proportional_controller.apogee_predict()
             burnout_time = sensor_manager.time
-            activated = True
+            # activated = True
             # kit.servo[1].angle = MIN_SERVO_ANGLE #16
             # time.sleep(1)
+        elif (sensor_manager.state == State.BURNOUT) and (sensor_manager.time - burnout_time >= 1): #and activated:
+            proportional_controller.apogee_predict()
+            servo.angle = 50
+        elif sensor_manager.state == State.OVERSHOOT:
+            servo.angle = servo.SERVO_MAX
+        elif sensor_manager.state == State.APOGEE:
+            servo.angle = servo.SERVO_MIN
+        """
         elif sensor_manager.time - burnout_time >= 5 and activated: 
             deactivated = True
             activated = False
@@ -73,7 +86,7 @@ while True:
             servo.angle = 65
         elif sensor_manager.time - burnout_time >= 1 and activated: 
             servo.angle = 50
-        
+        """
         # Finally, log the sensor values before repeating the cycle.
         logger.log()
         

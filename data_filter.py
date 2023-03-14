@@ -67,7 +67,7 @@ class DataFilter:
 
         return phi
 
-    def filter_data(self, altitude, acceleration_acce_z, linacceleration_imu_z, eulerangle_imu_z):
+    def filter_data(self, altitude, acceleration_acce_z, eulerangle_imu_z):
         # Read sensor data
         measurements = [
             float(altitude),

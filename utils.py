@@ -10,6 +10,7 @@ DATA_PATH = ACS_PATH + "/_data"
 LOGS_PATH = ACS_PATH + "/_logs"
 
 HEADERS = [
+    "#",
     "Time",
     "State",
     "Altitude",
@@ -32,7 +33,9 @@ HEADERS = [
     "Kalman_Velocity",
     "Kalman_Altitude",
     "Orientation(Beta)",
-    "Servo_Angle"
+    "Servo_Angle",
+    "Projected_Apogee",
+    "Error_Apogee"
 ]
 
 LAUNCH_ACCELERATION = 50  # m/s^2
