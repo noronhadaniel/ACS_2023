@@ -1,2 +1,0 @@
-Time,State,Altitude,ADXL_Acceleration_X,ADXL_Acceleration_Y,ADXL_Acceleration_Z,IMU_Acceleration_X,IMU_Acceleration_Y,IMU_Acceleration_Z,Linear_Acceleration_X,Linear_Acceleration_Y,Linear_Acceleration_Z,Euler_Angle_X,Euler_Angle_Y,Euler_Angle_Z,Gravity_X,Gravity_Y,Gravity_Z,Kalman_Acceleration,Kalman_Velocity,Kalman_Altitude,Orientation(Beta)
-5.0589,GROUND,0.3750,-0.2746,9.6105,-0.2354,-0.2300,9.2300,0.2200,0.0100,-0.5600,-0.0700,359.9375,-1.4375,-88.1875,-0.2500,9.7900,0.3000,-0.0871,0.0331,0.3647,-1.4375
