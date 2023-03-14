@@ -98,7 +98,13 @@ class Proportional_Controller:
         self.apogee_projected = H_sim
         self.apogee_error = H_sim - APOGEE_TARGET
 
-    def proportional_control(self):
-        K_p = None
-        pass
+    def proportional_target_angle_update(self):
+        # Proportional Gain Constant (Max actuation is when Error>400ft ~= 123m)...(K_p*123=70deg)
+        K_p = 0.5691056911
+        self.servo_target_angle = K_p*self.apogee_error
+        # Limit checks...(Angle must be between 25 and 70 degrees)
+        if self.servo_target_angle < self.servo.SERVO_MIN: # target < 25deg
+            self.servo_target_angle = self.servo.SERVO_MIN + 1.0
+        elif self.servo_target_angle > self.servo.SERVO_MAX:
+            self.servo_target_angle = self.servo.SERVO_MIN - 1.0
 

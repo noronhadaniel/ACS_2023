@@ -72,7 +72,8 @@ while True:
             # time.sleep(1)
         elif (sensor_manager.state == State.BURNOUT) and (sensor_manager.time - burnout_time >= 1): #and activated:
             proportional_controller.apogee_predict()
-            servo.angle = 50
+            proportional_controller.proportional_target_angle_update()
+            servo.angle = proportional_controller.servo_target_angle
         elif sensor_manager.state == State.OVERSHOOT:
             servo.angle = servo.SERVO_MAX
         elif sensor_manager.state == State.APOGEE:
