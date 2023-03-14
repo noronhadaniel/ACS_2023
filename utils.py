@@ -32,7 +32,7 @@ HEADERS = [
     "Kalman_Velocity",
     "Kalman_Altitude",
     "Orientation(Beta)",
-    "Angle"
+    "Servo_Angle"
 ]
 
 LAUNCH_ACCELERATION = 50  # m/s^2

@@ -26,7 +26,7 @@ if len(sys.argv) == 1:
 else:
     time.sleep(1)
     if int(sys.argv[1]) > 70 or int(sys.argv[1]) < 25:
-        exit("angle too high or low, use [28,72]!!!")
+        exit("angle too high or low, use [25,70]!!!")
     #print(f"Angle: {kit.servo[1].angle}")
     kit.servo[1].angle = int(sys.argv[1])
     # Positive angle = counterclockwise turn
