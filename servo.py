@@ -5,10 +5,10 @@ from adafruit_servokit import ServoKit
 
 class Servo:
     SERVO_CHANNEL = 1
-    SERVO_INIT = 40
+    SERVO_INIT = 50
     SERVO_MIN = 25
     SERVO_MAX = 70
-    SERVO_BURNOUT = 50
+    SERVO_BURNOUT = 50 # replaced by proportional control algorithm
 
     def __init__(self, *, channels, initialize=True):
         self.kit = ServoKit(channels=channels)

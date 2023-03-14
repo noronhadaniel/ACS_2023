@@ -22,7 +22,7 @@ class Proportional_Controller:
     def __init__(self, sensor_manager: SensorManager, servo: Servo):
         self.apogee_projected = 0
         self.apogee_error = 0
-        self.servo_target_angle = 0
+        self.servo_target_angle = servo.SERVO_MIN
         self.sensor_manager = sensor_manager
         self.servo = servo
         self._t_prev = None
@@ -99,12 +99,12 @@ class Proportional_Controller:
         self.apogee_error = H_sim - APOGEE_TARGET
 
     def proportional_target_angle_update(self):
-        # Proportional Gain Constant (Max actuation is when Error>400ft ~= 123m)...(K_p*123=70deg)
-        K_p = 0.5691056911
-        self.servo_target_angle = K_p*self.apogee_error
+        # Proportional Gain Constant (Max actuation is when Error>400ft ~= 123m)...(K_p*123+25=70deg)
+        K_p = 0.3658536585
+        self.servo_target_angle = K_p*self.apogee_error + self.servo.SERVO_MIN
         # Limit checks...(Angle must be between 25 and 70 degrees)
         if self.servo_target_angle < self.servo.SERVO_MIN: # target < 25deg
             self.servo_target_angle = self.servo.SERVO_MIN + 1.0
         elif self.servo_target_angle > self.servo.SERVO_MAX:
-            self.servo_target_angle = self.servo.SERVO_MIN - 1.0
+            self.servo_target_angle = self.servo.SERVO_MAX - 1.0
 

@@ -40,7 +40,7 @@ class Logger:
         """
 
         row = [
-            self.sensor_manager.readings,
+            self.sensor_manager.readings-1,
             "%.4f" % self.sensor_manager.time,
             self.sensor_manager.state.name,
             "%.4f" % self.sensor_manager.altitude,
