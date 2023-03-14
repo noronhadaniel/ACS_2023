@@ -38,7 +38,7 @@ class Proportional_Controller:
     def _fy(self, V, Cd_rocket, Cd_tabs, A_tabs, launch_angle, M_e):
         rho = 1.225 #[kg/m **3] density of air
         g = 9.80665 # [m/s **2] gravity
-        A_rocket = (6.17*0.0254/2)**2*math.pi # [diamter in to m] [m**2]
+        A_rocket = (6.25*0.0254/2)**2*math.pi # [diamter in to m] [m**2]
         Ky = (-0.5*rho*Cd_rocket*V**2*A_rocket*math.cos(launch_angle) - 0.5*rho*Cd_tabs*V**2*A_tabs*math.cos(launch_angle) - M_e*g)/M_e
         return Ky
     
@@ -54,7 +54,7 @@ class Proportional_Controller:
         L_tabs = 5.5*0.0254  # [in to m] flap length
         M_e = 773.95/35.274  # [oz to kg] EMPTY mass of rocket  # [m/s**2] gravity
         launch_angle = 0*math.pi/180 ## [degrees to radians] launch angle
-        fixed_dt = 0.01  # [s] time step size
+        fixed_dt = 0.5  # [s] time step size
 
         Mach = self._velocity/c
 
@@ -63,7 +63,7 @@ class Proportional_Controller:
         Cd_o_tabs = 1.28*math.sin(0)
         Cd_tabs = 1/math.sqrt(1-Mach**2)*Cd_o_tabs
         A_tabs = A_tabs = 4*w_tabs*(L_tabs)
-        Cd_rocket = 0.42 # VERIFY!
+        Cd_rocket = 0.42 
 
         # Mach correction
         if Mach >= 1:
@@ -87,7 +87,7 @@ class Proportional_Controller:
 
             # Find values for Velocity and Altitude (at next time step)
             V_sim = V_sim + 1.0/6.0*(k1vy + 2.0*k2vy + 2.0*k3vy + k4vy) 
-            H_sim = H_sim + 1.0/6.0*(k1ry + 2*k2ry + 2*k3ry + k4ry)
+            H_sim = H_sim + 1.0/6.0*(k1ry + 2.0*k2ry + 2.0*k3ry + k4ry)
 
             # UNUSED: Calculate new drag coefficient for tabs/(rocket?)
             Mach = V_sim/c
