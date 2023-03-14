@@ -34,6 +34,7 @@ HEADERS = [
     "Kalman_Altitude",
     "Orientation(Beta)",
     "Servo_Angle",
+    "Target_Servo_Angle",
     "Projected_Apogee",
     "Error_Apogee"
 ]

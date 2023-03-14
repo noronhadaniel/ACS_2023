@@ -65,6 +65,7 @@ class Logger:
             "%.4f" % self.sensor_manager.orientation_beta,
             # "%.4f" % self.sensor_manager.predicted_apogee
             "%.4f" % self.servo.angle,
+            "%.4f" % self.proportional_controller.servo_target_angle,
             "%.4f" % self.proportional_controller.apogee_projected,
             "%.4f" % self.proportional_controller.apogee_error
         ]

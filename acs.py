@@ -8,6 +8,7 @@ SPOOF_FILE = "./_data/data_01.csv"
 if SPOOF_FILE is not None:
     import pandas
 
+import time
 import datetime
 import traceback
 
@@ -90,6 +91,8 @@ while True:
         """
         # Finally, log the sensor values before repeating the cycle.
         logger.log()
+        if SPOOF_FILE is not None:
+            time.sleep(1/30) # Simulates 30Hz (Servo Delay...)
         
     except Exception:
         # Report Issue
