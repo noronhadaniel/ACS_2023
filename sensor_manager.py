@@ -107,7 +107,7 @@ class SensorManager:
 
         # Calculate filter values.
         # Note that we can treat the Kalman filter as another sensor.
-        self.filter.filter_data(self.altitude, self.acceleration_acce_y, self.eulerangle_imu_y)
+        self.filter.filter_data(self.altitude, self.acceleration_acce_y, self.eulerangle_imu_y,self.eulerangle_imu_z)
         self.kalman_acceleration = self.filter.kalman_acceleration
         self.kalman_velocity = self.filter.kalman_velocity
         self.kalman_altitude = self.filter.kalman_altitude
