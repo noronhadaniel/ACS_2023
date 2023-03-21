@@ -90,7 +90,6 @@ while True:
                 done = not done
             else:
                 servo.angle = servo.SERVO_MIN
-                BUG
         """
         elif sensor_manager.time - burnout_time >= 5 and activated: 
             deactivated = True
@@ -121,7 +120,7 @@ while True:
         servo.angle = Servo.SERVO_MIN
         
         # Give audio feedback and raise exception 
-        buzzer.frequency = 256
-        buzzer.beep(0.25)
+        buzzer.frequency = 255
+        buzzer.beep(0.1)
         continue
 
