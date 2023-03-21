@@ -6,3 +6,19 @@ Traceback (most recent call last):
     self.time = next(self.time_gen)
 StopIteration
 
+2023-03-18 17:53:50.819942
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 59, in <module>
+    sensor_manager.read_sensors()
+  File "/home/pi/ACS_2023/sensor_manager.py", line 77, in read_sensors
+    self.time = next(self.time_gen)
+StopIteration
+
+2023-03-19 10:58:00.417864
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 72, in <module>
+    proportional_controller.apogee_predict()
+  File "/home/pi/ACS_2023/proportional_controller.py", line 64, in apogee_predict
+    Cd_tabs = 1/math.sqrt(1-Mach**2)*Cd_o_tabs
+ValueError: math domain error
+

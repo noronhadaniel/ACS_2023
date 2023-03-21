@@ -7,7 +7,7 @@ class Servo:
     SERVO_CHANNEL = 1
     SERVO_INIT = 50
     SERVO_MIN = 25
-    SERVO_MAX = 70
+    SERVO_MAX = 60
     SERVO_BURNOUT = 50 # replaced by proportional control algorithm
 
     def __init__(self, *, channels, initialize=True):
