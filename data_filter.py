@@ -72,12 +72,12 @@ class DataFilter:
             [1, 0, 0],
             [0, np.cos(eulerangle_imu_z*np.pi/180), np.sin(eulerangle_imu_z*np.pi/180)],
             [0, -np.sin(eulerangle_imu_z*np.pi/180), np.cos(eulerangle_imu_z*np.pi/180)]
-        ]
+        ])
         R_y = np.array([
             [np.cos(eulerangle_imu_y*np.pi/180), 0, -np.sin(eulerangle_imu_y*np.pi/180)],
             [0, 1, 0],
             [np.sin(eulerangle_imu_y*np.pi/180), 0, np.cos(eulerangle_imu_y*np.pi/180)]
-        ]
+        ])
         z_acceleration = np.matmul(R_y,np.matmul(R_x,acceleration_acce_z))
         # Read sensor data
         measurements = [
