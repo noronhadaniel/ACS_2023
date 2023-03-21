@@ -78,7 +78,7 @@ class DataFilter:
             [0, 1, 0],
             [np.sin(eulerangle_imu_y*np.pi/180), 0, np.cos(eulerangle_imu_y*np.pi/180)]
         ])
-        acceleration = np.matmul(R_y,np.matmul(R_x,np.array([[acceleration_acce_x], [acceleration_acce_y], [acceleration_acce_z]]))
+        acceleration = np.matmul(R_y,np.matmul(R_x,np.array([[acceleration_acce_x], [acceleration_acce_y], [acceleration_acce_z]])))
         # Read sensor data
         measurements = [
             float(altitude),
