@@ -49,23 +49,26 @@ class Proportional_Controller:
         self._servo_angle = self.servo.angle
 
         # Initial constants
-        c = 343  #[m/s] speed of sound
+        # c = 343  #[m/s] speed of sound
         w_tabs = 1.75*0.0254  # [in to m] flap width
         L_tabs = 5.5*0.0254  # [in to m] flap length
         M_e = 773.95/35.274  # [oz to kg] EMPTY mass of rocket  # [m/s**2] gravity
         launch_angle = 0*math.pi/180 ## [degrees to radians] launch angle
         fixed_dt = 0.5  # [s] time step size
 
-        Mach = self._velocity/c
+        # Mach = self._velocity/c
 
         # Mach correction
-        if Mach >= 1:
-            Mach = 0.99
+        # if Mach >= 1:
+        #     Mach = 0.99
 
         # Unused code
-        extension = math.sin(0) * L_tabs
-        Cd_o_tabs = 1.28*math.sin(0)
-        Cd_tabs = 1/math.sqrt(1-Mach**2)*Cd_o_tabs
+        # extension = math.sin(0) * L_tabs
+        extension = 0
+        # Cd_o_tabs = 1.28*math.sin(0)
+        Cd_o_tabs = 0
+        # Cd_tabs = 1/math.sqrt(1-Mach**2)*Cd_o_tabs
+        Cd_tabs = 0
         A_tabs = A_tabs = 4*w_tabs*(L_tabs)
         Cd_rocket = 0.42 
 
@@ -90,11 +93,11 @@ class Proportional_Controller:
             H_sim = H_sim + 1.0/6.0*(k1ry + 2.0*k2ry + 2.0*k3ry + k4ry)
 
             # UNUSED: Calculate new drag coefficient for tabs/(rocket?)
-            Mach = V_sim/c
-            if Mach >= 1.0:
-                Mach = 0.99
-            Cd_tabs = 1/math.sqrt(1-Mach**2)*Cd_o_tabs
-
+            # Mach = V_sim/c
+            # if Mach >= 1.0:
+            #     Mach = 0.99
+            # Cd_tabs = 1/math.sqrt(1-Mach**2)*Cd_o_tabs
+            Cd_tabs = 0
         self.apogee_projected = H_sim
         self.apogee_error = H_sim - APOGEE_TARGET
 
