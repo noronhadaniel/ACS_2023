@@ -67,22 +67,11 @@ class DataFilter:
 
         return phi
 
-    def filter_data(self, altitude, acceleration_acce_x, acceleration_acce_y, acceleration_acce_z, eulerangle_imu_y, eulerangle_imu_z):
-        R_x = np.array([
-            [1, 0, 0],
-            [0, np.cos(eulerangle_imu_z*np.pi/180), np.sin(eulerangle_imu_z*np.pi/180)],
-            [0, -np.sin(eulerangle_imu_z*np.pi/180), np.cos(eulerangle_imu_z*np.pi/180)]
-        ])
-        R_y = np.array([
-            [np.cos(eulerangle_imu_y*np.pi/180), 0, -np.sin(eulerangle_imu_y*np.pi/180)],
-            [0, 1, 0],
-            [np.sin(eulerangle_imu_y*np.pi/180), 0, np.cos(eulerangle_imu_y*np.pi/180)]
-        ])
-        acceleration = np.matmul(R_y,np.matmul(R_x,np.array([[acceleration_acce_x], [acceleration_acce_y], [acceleration_acce_z]])))
+    def filter_data(self, altitude, acceleration_acce_z, eulerangle_imu_z):
         # Read sensor data
         measurements = [
             float(altitude),
-            float(float(acceleration[2]) - 9.770833429185348)
+            float(acceleration_acce_z - 9.770833429185348)
             # float(linacceleration_imu_z - 9.80665)
         ]
 
