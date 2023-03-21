@@ -110,7 +110,7 @@ class Proportional_Controller:
             self.servo_target_angle = self._servo_angle + 10
         elif (self.servo_target_angle - self._servo_angle) < -10:
             self.servo_target_angle = self._servo_angle - 10
-        # Limit checks...(Angle must be between 25 and 70 degrees)
+        # Limit checks...(Angle must be between 25 and 60 degrees)
         if self.servo_target_angle < self.servo.SERVO_MIN: # target < 25deg
             self.servo_target_angle = self.servo.SERVO_MIN + 1.0
         elif self.servo_target_angle > self.servo.SERVO_MAX:
