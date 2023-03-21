@@ -58,16 +58,16 @@ class Proportional_Controller:
 
         Mach = self._velocity/c
 
+        # Mach correction
+        if Mach >= 1:
+            Mach = 0.99
+
         # Unused code
         extension = math.sin(0) * L_tabs
         Cd_o_tabs = 1.28*math.sin(0)
         Cd_tabs = 1/math.sqrt(1-Mach**2)*Cd_o_tabs
         A_tabs = A_tabs = 4*w_tabs*(L_tabs)
         Cd_rocket = 0.42 
-
-        # Mach correction
-        if Mach >= 1:
-            Mach = 0.99
 
         # 4th Order Runge-Kutta Numerical approximation (simulate up to apogee)
         V_sim = self._velocity
