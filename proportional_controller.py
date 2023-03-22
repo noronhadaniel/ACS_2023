@@ -53,7 +53,7 @@ class Proportional_Controller:
         w_tabs = 1.75*0.0254  # [in to m] flap width
         L_tabs = 5.5*0.0254  # [in to m] flap length
         M_e = 773.95/35.274  # [oz to kg] EMPTY mass of rocket  # [m/s**2] gravity
-        launch_angle = 0*math.pi/180 ## [degrees to radians] launch angle
+        launch_angle = 6*math.pi/180 ## [degrees to radians] launch angle
         fixed_dt = 0.5  # [s] time step size
 
         # Mach = self._velocity/c
