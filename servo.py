@@ -25,7 +25,12 @@ class Servo:
 
     @property
     def angle(self):
-        return self.kit.servo[Servo.SERVO_CHANNEL].angle
+        # return self.kit.servo[Servo.SERVO_CHANNEL].angle
+        if self.kit.servo[Servo.SERVO_CHANNEL].angle is None:
+            print("Servo angle returned None value!")
+            self.angle
+        else:
+            return self.kit.servo[Servo.SERVO_CHANNEL].angle
 
     @angle.setter
     def angle(self, angle):
