@@ -22,7 +22,7 @@ while (time.time()-start_time < 200):
         previous_acceleration = current_acceleration
         print(f"Sample Rate = {samples/(time.time()-start_time):.4f}Hz")
 
-    #time.sleep(0.2)
+    time.sleep(0.2)
 print(f"Average z-axis acceleration: {sum(acceleration_list)/samples}m/s^2")
 
 

@@ -1,0 +1,416 @@
+2023-03-24 17:43:12.085002
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 68, in log
+    "%.4f" % self.servo.angle,
+TypeError: must be real number, not NoneType
+
+2023-03-24 17:43:12.236242
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:12.386640
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:12.536970
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:12.687358
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:12.840346
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:12.991311
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:13.145087
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:13.296925
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:13.449843
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:13.604557
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:13.759974
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:13.914698
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:14.070524
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:14.225129
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:14.380722
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:14.534747
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:14.690680
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:14.844057
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:14.997939
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:15.151334
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:15.307188
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:15.460798
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:15.613799
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:15.769236
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:15.924906
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:16.083493
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:16.239792
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:16.397889
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:16.552472
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:16.709242
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:16.866700
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:17.023017
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:17.181263
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:17.338590
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:17.497040
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:17.652130
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:17.808834
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:17.965955
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:18.124215
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:18.282570
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:18.439580
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:18.598001
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:18.755700
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:18.912513
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:19.069193
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:19.227309
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:19.384824
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:19.543319
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:19.701674
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:19.858250
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
+2023-03-24 17:43:20.015099
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 73, in log
+    csv.writer(self.file).writerow(row)
+ValueError: I/O operation on closed file.
+
