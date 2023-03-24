@@ -454,3 +454,13 @@ Traceback (most recent call last):
     "%.4f" % self.servo.angle,
 TypeError: must be real number, not NoneType
 
+ERROR!
+2023-03-24 18:19:11.779982
+Sample #226 @ 16.497177124023438s
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 68, in log
+    "%.4f" % self.servo.angle,
+TypeError: must be real number, not NoneType
+
