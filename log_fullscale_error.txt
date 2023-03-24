@@ -414,3 +414,43 @@ Traceback (most recent call last):
     csv.writer(self.file).writerow(row)
 ValueError: I/O operation on closed file.
 
+2023-03-24 17:53:48.272711
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 68, in log
+    "%.4f" % self.servo.angle,
+TypeError: must be real number, not NoneType
+
+2023-03-24 17:54:13.523682
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 68, in log
+    "%.4f" % self.servo.angle,
+TypeError: must be real number, not NoneType
+
+2023-03-24 17:55:34.926541
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 68, in log
+    "%.4f" % self.servo.angle,
+TypeError: must be real number, not NoneType
+
+2023-03-24 17:56:20.037332
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 68, in log
+    "%.4f" % self.servo.angle,
+TypeError: must be real number, not NoneType
+
+2023-03-24 17:56:23.547271
+Traceback (most recent call last):
+  File "/home/pi/ACS_2023/acs.py", line 109, in <module>
+    logger.log()
+  File "/home/pi/ACS_2023/logger.py", line 68, in log
+    "%.4f" % self.servo.angle,
+TypeError: must be real number, not NoneType
+
