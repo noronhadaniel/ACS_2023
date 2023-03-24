@@ -115,8 +115,14 @@ while True:
         print("Sorry, this program is experiencing a glitch :(")
         # Log Error
         with open('log_fullscale_error.txt','a') as err_log:
+            err_log.write("ERROR!\n")
             err_log.write(str(datetime.datetime.now()))
             err_log.write("\n")
+            err_log.write("Sample #")
+            err_log.write(str(sensor_manager.readings-1))
+            err_log.write(" @ ")
+            err_log.write(str(sensor_manager.time))
+            err_log.write("s\n")
             err_log.write(traceback.format_exc()) 
             err_log.write("\n")
         # Retract Flaps
