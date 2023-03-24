@@ -9,9 +9,9 @@ bmp.pressure_oversampling = 4
 # bmp.temperature_oversampling = 1
 bmp.sea_level_pressure = 988
 
+n = 100
+sea_sum = 0
 for _ in range(n):
-    n = 100
-    sea_sum = 0
     sea_sum += bmp.altimeter.pressure
     time.sleep(0.01)
 bmp.altimeter.sea_level_pressure = int(sea_sum/n)
