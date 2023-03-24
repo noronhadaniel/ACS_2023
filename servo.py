@@ -13,7 +13,6 @@ class Servo:
     def __init__(self, *, channels, initialize=True):
         self.kit = ServoKit(channels=channels)
         self.kit.servo[Servo.SERVO_CHANNEL].set_pulse_width_range(500, 2400)
-        self.reset_counter = 0
 
         # Run initialization sequence.
         if initialize:
@@ -27,12 +26,10 @@ class Servo:
     @property
     def angle(self):
         # return self.kit.servo[Servo.SERVO_CHANNEL].angle
-        if (self.kit.servo[Servo.SERVO_CHANNEL].angle is None) and (self.reset_counter < 3):
+        if self.kit.servo[Servo.SERVO_CHANNEL].angle is None:
             print("Servo angle returned None value!")
-            self.reset_counter += 1
             return self.angle
         else:
-            self.reset_counter = 0
             return self.kit.servo[Servo.SERVO_CHANNEL].angle
 
     @angle.setter
