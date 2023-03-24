@@ -42,8 +42,9 @@ class Accelerometer:
                 next(self.acceleration_acce_y_gen),
                 next(self.acceleration_acce_z_gen)
             )
-
-        self._acceleration_acce = self.accelerometer.acceleration
+        value = self.accelerometer.acceleration
+        if value[0] is not None:
+            self._acceleration_acce = value
         return self._acceleration_acce
 
 
@@ -80,7 +81,9 @@ class Altimeter:
         if self.spoof is not None:
             return next(self.altitude_gen)
 
-        self._altitude = self.altimeter.altitude
+        value = self.altimeter.altitude
+        if value is not None:
+            self._altitude = value
         return self._altitude
     
 class Altimeter_BMP390:
@@ -119,8 +122,10 @@ class Altimeter_BMP390:
     def altitude(self):
         if self.spoof is not None:
             return next(self.altitude_gen)
-
-        self._altitude = self.altimeter.altitude
+        
+        value = self.altimeter.altitude
+        if value is not None:
+            self._altitude = value
         return self._altitude
 
 
