@@ -92,9 +92,9 @@ class Altimeter_BMP390:
         self.spoof = spoof
         if self.spoof is not None:
             try:
-                self.altitude_gen = iter((0, *spoof["Altitude"]))
-            except:
                 self.altitude_gen = iter((0, *spoof["BMP_Altitude"]))
+            except:
+                self.altitude_gen = iter((0, *spoof["Altitude"]))
             return
         
         self.altimeter = adafruit_bmp3xx.BMP3XX_I2C(i2c)
