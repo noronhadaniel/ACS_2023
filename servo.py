@@ -28,7 +28,7 @@ class Servo:
         # return self.kit.servo[Servo.SERVO_CHANNEL].angle
         if self.kit.servo[Servo.SERVO_CHANNEL].angle is None:
             print("Servo angle returned None value!")
-            self.angle
+            return self.angle
         else:
             return self.kit.servo[Servo.SERVO_CHANNEL].angle
 
