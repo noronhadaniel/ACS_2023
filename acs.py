@@ -113,8 +113,6 @@ while True:
     except Exception:
         # Report Issue
         print("Sorry, this program is experiencing a glitch :(")
-        # Close data file
-        logger.file.close()
         # Log Error
         with open('log_fullscale_error.txt','a') as err_log:
             err_log.write(str(datetime.datetime.now()))
