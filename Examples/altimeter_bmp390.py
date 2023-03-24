@@ -15,7 +15,7 @@ while True:
     #print(
     #    "Pressure: {:6.4f}  Temperature: {:5.2f}".format(bmp.pressure, bmp.temperature)
     #)
-    print('Pressure: {} meters'.format(bmp.pressure))
+    print('Pressure: {} Pascals'.format(bmp.pressure))
     print('Altitude: {} meters'.format(bmp.altitude))
     # time.sleep(1)
     print(f"Sample Rate: {samples/(time.time() - start_time)}Hz")
