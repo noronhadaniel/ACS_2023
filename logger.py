@@ -44,6 +44,7 @@ class Logger:
             "%.4f" % self.sensor_manager.time,
             self.sensor_manager.state.name,
             "%.4f" % self.sensor_manager.altitude,
+            "%.4f" % self.sensor_manager.altitude_bmp,
             "%.4f" % self.sensor_manager.acceleration_acce_x,
             "%.4f" % self.sensor_manager.acceleration_acce_y,
             "%.4f" % self.sensor_manager.acceleration_acce_z,

@@ -14,6 +14,7 @@ HEADERS = [
     "Time",
     "State",
     "Altitude",
+    "BMP_Altitude",
     "ADXL_Acceleration_X",
     "ADXL_Acceleration_Y",
     "ADXL_Acceleration_Z",

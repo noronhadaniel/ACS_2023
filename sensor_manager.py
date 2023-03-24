@@ -6,7 +6,7 @@ which is responsible for the meat of filtration and state calculation.
 import time
 
 from data_filter import DataFilter
-from sensors import Accelerometer, Altimeter, IMU
+from sensors import Accelerometer, Altimeter, Altimeter_BMP390, IMU
 from state import State
 from utils import LAUNCH_ACCELERATION, LAUNCH_ALTITUDE, BURNOUT_ACCELERATION, APOGEE_VELOCITY, APOGEE_ALTITUDE
 
@@ -18,11 +18,12 @@ class SensorManager:
     state of the launch vehicle. This is our source of truth.
     """
 
-    def __init__(self, accelerometer: Accelerometer, altimeter: Altimeter, imu: IMU, spoof=None):
+    def __init__(self, accelerometer: Accelerometer, altimeter: Altimeter, altimeter_bmp: Altimeter_BMP390,imu: IMU, spoof=None):
         self.spoof = spoof
 
         self.accelerometer = accelerometer
         self.altimeter = altimeter
+        self.altimeter_bmp = altimeter_bmp
         self.imu = imu
         self.filter = DataFilter(spoof=self.spoof)
 
@@ -86,6 +87,7 @@ class SensorManager:
 
         # Read altimeter values.
         self.altitude = self.altimeter.altitude
+        self.altitude_bmp = self.altimeter_bmp.altitude
 
         # Read IMU values.
         self.acceleration_imu = self.imu.acceleration_imu

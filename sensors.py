@@ -13,6 +13,7 @@ import time
 import adafruit_adxl34x
 import adafruit_bno055
 import adafruit_mpl3115a2
+import adafruit_bmp3xx
 
 
 class Accelerometer:
@@ -73,6 +74,45 @@ class Altimeter:
             sea_sum += self.altimeter.pressure
             time.sleep(0.01)
         self.altimeter.sealevel_pressure = int(sea_sum * 100 / n)
+
+    @property
+    def altitude(self):
+        if self.spoof is not None:
+            return next(self.altitude_gen)
+
+        self._altitude = self.altimeter.altitude
+        return self._altitude
+    
+class Altimeter_BMP390:
+    """
+    The Altimeter class represents the BMP390 altimeter.
+    """
+
+    def __init__(self, i2c, zero=True, sea_level_pressure=101000, spoof=None):
+        self.spoof = spoof
+        if self.spoof is not None:
+            try:
+                self.altitude_gen = iter((0, *spoof["Altitude"]))
+            except:
+                self.altitude_gen = iter((0, *spoof["BMP_Altitude"]))
+            return
+        
+        self.altimeter = adafruit_bmp3xx.BMP3XX_I2C(i2c)
+
+        self._altitude = 0
+
+        if zero:
+            self._zero()
+        else:
+            self.altimeter.sea_level_pressure = int(sea_level_pressure)
+
+    def _zero(self):
+        n = 100
+        sea_sum = 0
+        for _ in range(n):
+            sea_sum += self.altimeter.pressure
+            time.sleep(0.01)
+        self.altimeter.sea_level_pressure = int(sea_sum/n)
 
     @property
     def altitude(self):

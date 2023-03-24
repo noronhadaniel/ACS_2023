@@ -17,7 +17,7 @@ import board
 from buzzer import Buzzer
 from logger import Logger
 from sensor_manager import SensorManager
-from sensors import Accelerometer, Altimeter, IMU
+from sensors import Accelerometer, Altimeter, Altimeter_BMP390, IMU
 from servo import Servo
 from state import State
 from proportional_controller import Proportional_Controller
@@ -28,10 +28,10 @@ buzzer.beep(1)
 
 if SPOOF_FILE is None:
     brd = board.I2C()
-    sensor_manager = SensorManager(Accelerometer(brd), Altimeter(brd), IMU(brd))
+    sensor_manager = SensorManager(Accelerometer(brd), Altimeter(brd), Altimeter_BMP390(brd), IMU(brd))
 else:
     df = pandas.read_csv(SPOOF_FILE)
-    sensor_manager = SensorManager(Accelerometer(None, spoof=df), Altimeter(None, spoof=df), IMU(None, spoof=df), spoof=df)
+    sensor_manager = SensorManager(Accelerometer(None, spoof=df), Altimeter(None, spoof=df), Altimeter_BMP390(None, spoof=df), IMU(None, spoof=df), spoof=df)
 
 buzzer.frequency = 880
 buzzer.beep(1)
@@ -80,6 +80,11 @@ while True:
         elif sensor_manager.state == State.OVERSHOOT:
             servo.angle = servo.SERVO_MAX
             proportional_controller.servo_target_angle = servo.SERVO_MAX
+        elif (sensor_manager.state == State.APOGEE) and (sensor_manager.time - burnout_time <= 6):
+            sensor_manager.state = State.BURNOUT
+            proportional_controller.apogee_predict()
+            proportional_controller.proportional_target_angle_update()
+            servo.angle = proportional_controller.servo_target_angle
         elif sensor_manager.state == State.APOGEE:
             if not done:
                 servo.angle = servo.SERVO_MIN
