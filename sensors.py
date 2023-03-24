@@ -98,6 +98,7 @@ class Altimeter_BMP390:
             return
         
         self.altimeter = adafruit_bmp3xx.BMP3XX_I2C(i2c)
+        self.altimeter.pressure_oversampling = 4
 
         self._altitude = 0
 
