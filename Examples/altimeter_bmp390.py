@@ -12,9 +12,9 @@ bmp.sea_level_pressure = 988
 n = 100
 sea_sum = 0
 for _ in range(n):
-    sea_sum += bmp.altimeter.pressure
+    sea_sum += bmp.pressure
     time.sleep(0.01)
-bmp.altimeter.sea_level_pressure = int(sea_sum/n)
+bmp.sea_level_pressure = int(sea_sum/n)
 
 start_time = time.time()
 samples = 0
