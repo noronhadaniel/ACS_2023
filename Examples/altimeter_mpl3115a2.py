@@ -26,7 +26,7 @@ sensor.sealevel_pressure = 101084
 # Main loop to read the sensor values and print them every second.
 start_time = time.time()
 samples = 0
-while ((time.time()-start_time) < 10):
+while (True):
     #pressure = sensor.pressure
     #print("Pressure: {0:0.3f} pascals".format(pressure))
     altitude = sensor.altitude

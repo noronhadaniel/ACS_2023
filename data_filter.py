@@ -71,7 +71,7 @@ class DataFilter:
         # Read sensor data
         measurements = [
             float(altitude),
-            float(acceleration_acce_z - 9.770833429185348)
+            float(acceleration_acce_z - 9.77820767803949)
             # float(linacceleration_imu_z - 9.80665)
         ]
 

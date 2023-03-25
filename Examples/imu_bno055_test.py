@@ -43,4 +43,4 @@ while (True):
     print(f"Sample Rate = {samples/(time.time()-start_time):.4f}Hz")
     print()
 
-    time.sleep(0.5)
+    # time.sleep(0.5)
