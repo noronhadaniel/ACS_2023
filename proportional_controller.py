@@ -52,7 +52,7 @@ class Proportional_Controller:
         # c = 343  #[m/s] speed of sound
         w_tabs = 1.75*0.0254  # [in to m] flap width
         L_tabs = 5.5*0.0254  # [in to m] flap length
-        M_e = 773.95/35.274  # [oz to kg] EMPTY mass of rocket  # [m/s**2] gravity
+        M_e = 750.11/35.274  # [oz to kg] EMPTY mass of rocket  # [m/s**2] gravity
         launch_angle = 6*math.pi/180 ## [degrees to radians] launch angle
         fixed_dt = 0.5  # [s] time step size
 
@@ -70,7 +70,7 @@ class Proportional_Controller:
         # Cd_tabs = 1/math.sqrt(1-Mach**2)*Cd_o_tabs
         Cd_tabs = 0
         A_tabs = A_tabs = 4*w_tabs*(L_tabs)
-        Cd_rocket = 0.42 
+        Cd_rocket = 0.448 
 
         # 4th Order Runge-Kutta Numerical approximation (simulate up to apogee)
         V_sim = self._velocity
