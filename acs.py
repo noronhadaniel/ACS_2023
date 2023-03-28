@@ -3,7 +3,7 @@ acs.py contains the main ACS control flow. This is where it all happens.
 """
 
 SPOOF_FILE = None
-SPOOF_FILE = "./_data/data_15.csv"
+SPOOF_FILE = "./test_data/data_15_truncated.csv"
 
 if SPOOF_FILE is not None:
     import pandas

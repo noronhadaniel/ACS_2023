@@ -103,6 +103,7 @@ class Proportional_Controller:
 
     def proportional_target_angle_update(self):
         # Proportional Gain Constant (Max actuation is when Error>400ft ~= 123m)...(K_p*123+25=70deg)
+        # K_p = 0.3
         K_p = 0.3
         self.servo_target_angle = K_p*self.apogee_error + self.servo.SERVO_MIN
         
