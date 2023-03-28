@@ -7,13 +7,13 @@ to a CSV for later inspection.
 import csv
 
 from sensor_manager import SensorManager
-from proportional_controller import ProportionalController
+from proportional_controller import Proportional_Controller
 from servo import Servo
 from utils import HEADERS
 
 
 class Logger:
-    def __init__(self, name: str, sensor_manager: SensorManager, servo: Servo, proportional_controller: ProportionalController):
+    def __init__(self, name: str, sensor_manager: SensorManager, servo: Servo, proportional_controller: Proportional_Controller):
         self.name = name
         self.sensor_manager = sensor_manager
         self.servo = servo

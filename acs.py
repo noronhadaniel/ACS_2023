@@ -20,7 +20,7 @@ from sensor_manager import SensorManager
 from sensors import Accelerometer, Altimeter, Altimeter_BMP390, IMU
 from servo import Servo
 from state import State
-from proportional_controller import ProportionalController
+from proportional_controller import Proportional_Controller
 import utils
 
 buzzer = Buzzer(board.D13)
@@ -40,7 +40,7 @@ buzzer.beep(1)
 servo = Servo(channels=16)
 
 # Initialize proportional controller
-proportional_controller = ProportionalController(sensor_manager, servo)
+proportional_controller = Proportional_Controller(sensor_manager, servo)
 
 logger = Logger(utils.DATA_PATH + "/data_" + utils.file_number() + ".csv", sensor_manager, servo, proportional_controller)
 
