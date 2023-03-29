@@ -48,6 +48,13 @@ DSSERVO DS5180 80kg High-Torque Standard Servo Motor
 ## Fullscale Workflow (Control Code Flowchart)
 ![image](https://user-images.githubusercontent.com/91227299/223595209-889868e9-dea8-4749-9dbb-75108b3a8092.png)
 
+## System Images
+![7 4 2 ACS_PCB_Active-min copy](https://user-images.githubusercontent.com/91227299/228406355-df6506ee-9124-494b-94a9-4b5d33c70b00.jpg)
+
+![image](https://user-images.githubusercontent.com/91227299/228406500-d13aef70-e8bb-48aa-9c93-0917f6b0633b.png)
+
+![image](https://user-images.githubusercontent.com/91227299/228406745-fa90a22e-1be6-48bc-a491-9fa7a6bf5541.png)
+
 ## Miscellaneous Notes/Troubleshooting
 * Command: `ssh pi@mulberry`
   * Error: `ssh: Could not resolve hostname [hostname]: nodename nor servname provided, or not known`
