@@ -3,7 +3,8 @@ acs.py contains the main ACS control flow. This is where it all happens.
 """
 
 SPOOF_FILE = None
-SPOOF_FILE = "./test_data/data_15_truncated.csv"
+# SPOOF_FILE = "./test_data/test_Truncated_ACS_Fullscale_Launch_Data_20230218.csv"
+# SPOOF_FILE = "./test_data/data_15_truncated.csv"
 
 if SPOOF_FILE is not None:
     import pandas
