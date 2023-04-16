@@ -1,0 +1,3 @@
+ACS detected apogee at 1523.8285126995713m = 4999.437537605261ft (Kalman Altitude @ t=5620.840510129929s from power-on).
+MPL3115A2 altitude reading was 1523.335744258793m = 4997.820843194018ft.
+It will be on the ground shortly and is ready for inspection!
