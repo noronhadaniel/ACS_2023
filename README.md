@@ -60,9 +60,10 @@ DSSERVO DS5180 80kg High-Torque Standard Servo Motor
 ## Mechanical System Images
 ![image](https://user-images.githubusercontent.com/91227299/228406500-d13aef70-e8bb-48aa-9c93-0917f6b0633b.png)
 
-![image](https://user-images.githubusercontent.com/91227299/228406745-fa90a22e-1be6-48bc-a491-9fa7a6bf5541.png)
+<img width="988" alt="Screenshot 2023-04-27 at 21 39 23" src="https://user-images.githubusercontent.com/91227299/235033892-27c900f4-e5be-420c-8941-88ce1b1d3523.png">
 
-![image](https://user-images.githubusercontent.com/91227299/228407859-fb24601e-26f1-49bf-9e67-217eac667d9f.png) ![image](https://user-images.githubusercontent.com/91227299/228407889-3d8ad5d4-b775-4cd7-a0f6-5d6932a15c6b.png)
+<img width="988" alt="Screenshot 2023-04-27 at 21 38 52" src="https://user-images.githubusercontent.com/91227299/235033903-405cc6cd-2cd6-46ad-b7c6-f3662e556070.png">
+
 
 
 
