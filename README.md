@@ -1,5 +1,5 @@
 # ACS 2023
-This repository contains all (Python 3) code and libraries required for the 2022-2023 Notre Dame Rocketry Team (NDRT) Apogee Control System (ACS). It also contains sensor/actuator example code and flight data.
+This repository contains all (Python 3) code and libraries required for the 2022-2023 Notre Dame Rocketry Team (NDRT) Apogee Control System (ACS). It also contains sensor/actuator example code and flight data. This year's target apogee was 4600 feet. On our 03/26/2023 Vehicle Demonstration Flight, the ACS deployed and successfully reduced apogee from around 5250 feet to 4547 feet, which was only about 50 feet below the 4600 feet target. All flight data was also logged successfully.
 
 ## Interfacing with the Microcontroller
 SSH:
